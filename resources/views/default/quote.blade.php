@@ -1,9 +1,10 @@
 <!-- default quote -->
 @isset($data['text'])
-    <blockquote class="editor-js-blockquote" @isset($cite) cite="{{$cite}}" @endisset>
+    <blockquote class="editor-js-blockquote">
         {{$data['text']}}
+        @isset($data['caption'])<footer>{{$data['caption']}}</footer>@endisset
     </blockquote>
-    @isset($data['caption'])<strong>{{$data['caption']}}</strong>@endisset
+
 @endisset
 
 
