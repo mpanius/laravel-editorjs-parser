@@ -1,8 +1,8 @@
 <!-- default quote -->
 @isset($data['text'])
     <blockquote class="editor-js-blockquote">
-        <p>{{$data['text']}}</p>
-        @isset($data['caption'])<b>&nbsp;—&nbsp;{{$data['caption']}}</b>@endisset
+        <span>{{$data['text']}}</span>
+        @isset($data['caption'])<span><b>&nbsp;—&nbsp;{{$data['caption']}}</b></span>@endisset
     </blockquote>
 
 @endisset
