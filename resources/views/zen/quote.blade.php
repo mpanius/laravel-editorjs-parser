@@ -1,7 +1,7 @@
 <!-- default quote -->
 @isset($data['text'])
     <blockquote class="editor-js-blockquote">
-        <span>{{$data['text']}}</span>
+        <span>{{strip_tags($data['text'],['<a>'])}}</span>
         @isset($data['caption'])<span><b>&nbsp;—&nbsp;{{$data['caption']}}</b></span>@endisset
     </blockquote>
 
