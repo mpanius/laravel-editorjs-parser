@@ -1,5 +1,5 @@
 {
-	"name": "mpanius/laravel-editorjs",
+	"name": "mpanius/laravel-editor-parser",
 	"description": "A simple editor.js html parser for Laravel",
 	"type": "library",
 	"license": "MIT",

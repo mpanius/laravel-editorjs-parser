@@ -17,12 +17,15 @@ class LaravelEditorJs
      */
     public function render(string $data,$template_dir = 'html') : string
     {
+
         try {
             $configJson = json_encode(config('laravel_editorjs.config') ?: []);
 
             $editor = new EditorJS($data, $configJson);
 
             $renderedBlocks = [];
+
+
 
             foreach ($editor->getBlocks() as $block) {
 
