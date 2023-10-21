@@ -15,7 +15,7 @@ class LaravelEditorJs
      * @param string $data
      * @return string
      */
-    public function render(string $data,$template_dir = 'html') : string
+    public function render(string $data,$template_dir) : string
     {
 
         try {
