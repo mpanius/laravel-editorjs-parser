@@ -1,3 +1,4 @@
+<!-- default list -->
 @if($data['style']  === 'unordered')
 
     <ul class="editor-js-list editor-js-list-unordered">

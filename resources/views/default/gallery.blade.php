@@ -1,3 +1,4 @@
+<!-- default gallery -->
 @if($data['config'] !== 'standard')
     @if($data['countItemEachRow'] == 2)
 

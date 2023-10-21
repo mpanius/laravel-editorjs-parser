@@ -1,3 +1,4 @@
+<!-- default embed -->
 <div class="editor-js-block editor-js-embed">
 
     @if($data['service'] == 'youtube')

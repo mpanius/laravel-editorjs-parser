@@ -1,3 +1,4 @@
+<!-- default link -->
 <div class="bg-white border-2 rounded-2xl p-6 grid gap-2 grid-cols-auto grid-cols-3  my-6">
     <div class="col-span-3 md:col-span-2 prose prose-a:text-gray-400">
         <h4>{{ data_get($data,'meta.title') }}</h4>

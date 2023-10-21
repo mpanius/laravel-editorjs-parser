@@ -1,3 +1,4 @@
+<!-- default table -->
 <table class="editor-js-block editor-js-table">
 
     @isset($data['caption'])

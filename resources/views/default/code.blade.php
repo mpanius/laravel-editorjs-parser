@@ -1,3 +1,2 @@
-<div class="editor-js-block editor-js-code">
-    <code class="code__content">{{ htmlspecialchars($data['code']) }}</code>
-</div>
+<!-- default code -->
+<code class="editor-js-block editor-js-code-code">{{ htmlspecialchars($data['code']) }}</code>
