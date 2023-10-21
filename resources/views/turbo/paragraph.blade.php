@@ -1,0 +1,1 @@
+<p>{!! htmlspecialchars_decode($data['text'] ?? '') !!}</p>

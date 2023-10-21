@@ -29,7 +29,16 @@ class LaravelEditorJs
                 $viewName = "laravel_editorjs::{$template_dir}." . Str::snake($block['type'], '-');
 
                 if (! View::exists($viewName)) {
-                    $viewName = "laravel_editorjs::{$template_dir}.not-found";
+                    if($template_dir === 'default')
+                    {
+                        $viewName = "laravel_editorjs::default.not-found";
+                    } else
+                    {
+                        $viewName = "laravel_editorjs::default." . Str::snake($block['type'], '-');
+                        if(!View::exists($viewName)){
+                            $viewName = "laravel_editorjs::default.not-found";
+                        }
+                    }
                 }
 
                 $renderedBlocks[] = View::make($viewName, [
