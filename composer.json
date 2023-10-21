@@ -1,6 +1,6 @@
 {
-	"name": "mpanius/laravel-editor-parser",
-	"description": "A simple editor.js html parser for Laravel",
+	"name": "mpanius/laravel-editorjs-parser",
+	"description": "A simple editor.js html parser for Laravel, derived from Al-Amin Firdows",
 	"type": "library",
 	"license": "MIT",
 	"authors": [
