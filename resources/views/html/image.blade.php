@@ -4,7 +4,7 @@
        @if($data['caption'] ?? null) data-title="{{$data['caption']}}" @endif>
         <img @if(!empty($data['file']['width']) && $data['file']['width'] != 0)width="{{$data['file']['width']}}"
              height="{{$data['file']['height']}}" @endif
-             decoding="async" src="{{ $data['file']['url'] }}?width=736"
+             decoding="async" src="{{ thumbor($data['file']['url'],736) }}"
              @if(!empty($data['caption']))alt="{{ $data['caption'] }}"@endif>
     </a>
     @if (($data['caption'] ?? null) || ($data['alt'] ?? null) || ($data['link'] ?? null) )
