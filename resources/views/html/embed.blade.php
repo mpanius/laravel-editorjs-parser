@@ -17,12 +17,12 @@
             </a>
             @break
         @case('vkontakte')
-            <iframe src="{!! str_replace('&amp;','&',$data['embed']) !!}" width="853" height="480"
+            <iframe class="aspect-w-16 aspect-h-9 w-full h-64" src="{!! str_replace('&amp;','&',$data['embed']) !!}" width="853" height="480"
                     allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;" frameborder="0"
                     allowfullscreen></iframe>
             @break
         @case('rutube')
-            <iframe src="{!! str_replace('&amp;','&',$data['embed']) !!}" width="720" height="405"
+            <iframe class="aspect-w-16 aspect-h-9 w-full h-64" src="{!! str_replace('&amp;','&',$data['embed']) !!}" width="720" height="405"
                     frameBorder="0" allow="clipboard-write; autoplay" allowFullScreen></iframe>
 
             @break
