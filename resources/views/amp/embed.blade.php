@@ -9,12 +9,12 @@
         </amp-youtube>
         @break
         @case('vkontakte')
-            <amp-iframe src="{!! str_replace('&amp;','&',$data['embed']) !!}" width="853" height="480"
+            <amp-iframe src="{!! str_replace('&amp;','&',$data['embed']) !!}" width="853" height="480" sandbox="allow-scripts allow-same-origin"
                     allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;" frameborder="0"
                     allowfullscreen></amp-iframe>
             @break
         @case('rutube')
-            <amp-iframe src="{!! str_replace('&amp;','&',$data['embed']) !!}" width="720" height="405"
+            <amp-iframe src="{!! str_replace('&amp;','&',$data['embed']) !!}" width="720" height="405" sandbox="allow-scripts allow-same-origin"
                     frameBorder="0" allow="clipboard-write; autoplay" allowFullScreen></amp-iframe>
 
             @break
