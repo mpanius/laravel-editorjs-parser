@@ -19,7 +19,9 @@
 
             @break
         @default
-            <amp-iframe class="aspect-w-16 aspect-h-9 w-full h-64"  frameborder="0" allowfullscreen="" src="{!! $data['embed'] !!}"></amp-iframe>
+            <amp-iframe src="{!! str_replace('&amp;','&',$data['embed']) !!}" width="853" height="480" sandbox="allow-scripts allow-same-origin"
+                        allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;" frameborder="0" layout="responsive"
+                        allowfullscreen></amp-iframe>
     @endswitch
 
     <div class="prose prose-2xl my-2 mx-auto text-center">

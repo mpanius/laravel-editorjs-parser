@@ -5,8 +5,8 @@
     @switch($data['service'])
         @case('youtube')
             <a class="glightbox w-full relative" href="{!! $data['embed'] !!}" data-type="video" data-source="youtube">
-                <img class="w-full aspect-w-16"
-                     src="https://img.youtube.com/vi/{{str_replace('https://www.youtube.com/embed/','',Str::before($data['embed'],'?'))}}/maxresdefault.jpg">
+                <img class="w-full aspect-video"
+                     src="https://img.youtube.com/vi/{{str_replace('https://www.youtube.com/embed/','',Str::before($data['embed'],'?'))}}/hqdefault.jpg">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-32 w-32 absolute "
                      style="top: calc(50% - 64px); left: calc(50% - 64px);" fill="none" viewBox="0 0 24 24"
                      stroke="white" stroke-width="2">
@@ -17,12 +17,12 @@
             </a>
             @break
         @case('vkontakte')
-            <iframe class="aspect-w-16 aspect-h-9 w-full h-64" src="{!! str_replace('&amp;','&',$data['embed']) !!}" width="853" height="480"
+            <iframe class="w-full aspect-video" src="{!! str_replace('&amp;','&',$data['embed']) !!}" width="853" height="480"
                     allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;" frameborder="0"
                     allowfullscreen></iframe>
             @break
         @case('rutube')
-            <iframe class="aspect-w-16 aspect-h-9 w-full h-64" src="{!! str_replace('&amp;','&',$data['embed']) !!}" width="720" height="405"
+            <iframe class="w-full aspect-video" src="{!! str_replace('&amp;','&',$data['embed']) !!}" width="720" height="405"
                     frameBorder="0" allow="clipboard-write; autoplay" allowFullScreen></iframe>
 
             @break
