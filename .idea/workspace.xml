@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3373ee3b-1271-493a-b5e4-1786bc36c3bf" name="Changes" comment="Fix amp">
-      <change beforePath="$PROJECT_DIR$/resources/views/amp/embed.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/amp/embed.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/html/embed.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/html/embed.blade.php" afterDir="false" />
-    </list>
+    <list default="true" id="3373ee3b-1271-493a-b5e4-1786bc36c3bf" name="Changes" comment="fix relative for safari embeds" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -73,6 +70,7 @@
       <updated>1720562741531</updated>
       <workItem from="1720562742596" duration="796000" />
       <workItem from="1720563660231" duration="673000" />
+      <workItem from="1721003559215" duration="273000" />
     </task>
     <task id="LOCAL-00001" summary="Fix versions">
       <option name="closed" value="true" />
@@ -122,7 +120,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720564105577</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="fix relative for safari embeds">
+      <option name="closed" value="true" />
+      <created>1721003656240</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1721003656240</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -131,6 +137,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Fix versions" />
     <MESSAGE value="Fix amp" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix amp" />
+    <MESSAGE value="fix relative for safari embeds" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix relative for safari embeds" />
   </component>
 </project>
