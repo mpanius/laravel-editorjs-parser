@@ -1,10 +1,10 @@
-<div class="editor-js-embed">
+<div class="editor-js-embed relative">
 
 
 
     @switch($data['service'])
         @case('youtube')
-            <a class="glightbox w-full relative" href="{!! $data['embed'] !!}" data-type="video" data-source="youtube">
+            <a class="glightbox w-full" href="{!! $data['embed'] !!}" data-type="video" data-source="youtube">
                 <img class="w-full aspect-video"
                      src="https://img.youtube.com/vi/{{str_replace('https://www.youtube.com/embed/','',Str::before($data['embed'],'?'))}}/hqdefault.jpg">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-32 w-32 absolute "
