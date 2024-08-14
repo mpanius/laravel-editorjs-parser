@@ -1,6 +1,6 @@
 <figure class="editor-js-image{{ $data['classes'] ?? ' '}}">
 
-    <a href="{{str_replace(['s3.cs.ixbt.com','storage.ixbt.com'],'cdn.ixbt.site',$data['file']['url'])}}" class="glightbox"
+    <a href="{{str_replace(['s3.cs.ixbt.com','storage.ixbt.com'],'storage.ixbt.site',$data['file']['url'])}}" class="glightbox"
        @if($data['caption'] ?? null) data-title="{{$data['caption']}}" @endif>
         <img @if(!empty($data['file']['width']) && $data['file']['width'] != 0)width="{{$data['file']['width']}}"
              height="{{$data['file']['height']}}" @endif
