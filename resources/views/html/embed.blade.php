@@ -7,12 +7,12 @@
             <div
                 style="width:100%;height:0;position:relative;padding-bottom: 56.25%;"
                 class="viqeo-external_player"
-                data-playerId="4931"
-                data-profile="17226"
+                data-playerId="4933"
+                data-profile="17242"
                 data-videoSrc="{{str_replace('&amp;','&',$data['embed'])}}"
             >
                 <iframe
-                    src="https://cdn.viqeo.tv/embed/?videoSrc={{str_replace('&amp;','&',$data['embed'])}}&playerId=4931"
+                    src="https://cdn.viqeo.tv/embed/?videoSrc={{str_replace('&amp;','&',$data['embed'])}}&playerId=4933"
                     width="100%" height="100%" style="position:absolute;" frameBorder="0" allowFullScreen></iframe>
             </div>
             @break
