@@ -1,12 +1,12 @@
 {
-	"name": "alaminfirdows/laravel-editorjs",
+	"name": "mpanius/laravel-editorjs-parser",
 	"description": "A simple editor.js html parser for Laravel, derived from Al-Amin Firdows",
 	"type": "library",
 	"license": "MIT",
 	"authors": [
 		{
-			"name": "Al-Amin Firdows",
-			"email": "alaminfirdows@gmail.com"
+			"name": "MPanius",
+			"email": "mpanius@gmail.com"
 		}
 	],
 	"require": {
