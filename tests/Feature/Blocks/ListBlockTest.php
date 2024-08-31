@@ -11,7 +11,7 @@ class ListBlockTest extends TestCase
         return [
             'type' => 'list',
             'data' => [
-                'type' => 'unordered',
+                'style' => 'unordered',
                 'items' => [
                     'Hello',
                     'World',
