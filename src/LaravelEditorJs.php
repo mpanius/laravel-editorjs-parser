@@ -44,10 +44,10 @@ class LaravelEditorJs
                     }
                 }
 
-                $renderedBlocks[] = View::make($viewName, [
+                $renderedBlocks[] = view($viewName, [
                     'type' => $block['type'],
                     'data' => $block['data']
-                ])->render();
+                ])->toHtml();
             }
 
             return implode($renderedBlocks);
@@ -55,5 +55,5 @@ class LaravelEditorJs
             throw new \Exception($e->getMessage());
         }
     }
-    
+
 }
