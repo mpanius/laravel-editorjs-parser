@@ -129,6 +129,23 @@ return [
                     'allowedTags' => '*',
                 ],
             ],
+            'checklist' => [
+                'items' => [
+                    'type' => 'array',
+                    'data' => [
+                        '-' => [
+                            'type' => 'array',
+                            'data' => [
+                                'text' => [
+                                    'type' => 'string',
+                                    'allowedTags' => 'i,b,a[href],code[class],mark[class]',
+                                ],
+                                'checked' => 'boolean',
+                            ],
+                        ],
+                    ],
+                ],
+            ],
             // 'attaches'  => [
             //     'file'  => [
             //         'type' => 'array',
