@@ -15,6 +15,7 @@ class LaravelEditorJs
      *
      * @param string $data
      * @return string
+     * @throws Exception
      */
     public function render(string $data): string
     {
