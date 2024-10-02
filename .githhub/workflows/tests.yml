@@ -3,61 +3,47 @@ name: Run Tests
 on:
   pull_request:
     branches:
-      - dev
-      - master
-      - next
-
+      - '*'
   push:
     branches:
-      - '*'
+      - 'master'
+      - '1.x'
+      - '2.x'
 
 jobs:
   tests:
-    name: Run tests
+    name: PHP ${{ matrix.php-versions }} Test
     runs-on: ubuntu-latest
-    env:
-      php-version: 8.2
-      extensions: intl, gmp, sqlite, mbstring
-      key: cache-extensions-v2
+    strategy:
+      matrix:
+        php-versions: ['7.2', '8.1', '8.2']
 
     steps:
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@v3
-
-      - name: Setup cache environment
-        id: extcache
-        uses: shivammathur/cache-extensions@v1
-        with:
-          php-version: ${{ env.php-version }}
-          extensions: ${{ env.extensions }}
-          key: ${{ env.key }}
-
-      - name: Cache extensions
-        uses: actions/cache@v3
-        with:
-          path: ${{ steps.extcache.outputs.dir }}
-          key: ${{ steps.extcache.outputs.key }}
-          restore-keys: ${{ steps.extcache.outputs.key }}
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php-versions }}
-          extensions: ${{ env.extensions }}
+          extensions: intl, gmp, sqlite, mbstring
+          coverage: none
 
       - name: Get composer cache directory
         id: composer-cache
-        run: echo "::set-output name=dir::$(composer config cache-files-dir)"
+        run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
 
       - name: Cache dependencies
         uses: actions/cache@v3
         with:
           path: ${{ steps.composer-cache.outputs.dir }}
-          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
-          restore-keys: ${{ runner.os }}-composer
+          key: ${{ runner.os }}-composer-${{ matrix.php-versions }}-${{ hashFiles('**/composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-composer-${{ matrix.php-versions }}-
+            ${{ runner.os }}-composer-
 
-      - name: Install Dependencies
-        run: composer install -q --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress
 
-      - name: Execute tests
+      - name: Run test suite
         run: composer test
