@@ -141,6 +141,14 @@ return [
             //     ],
             //     'title' => 'string',
             // ]
+            'embed' => [
+                'service' => 'string',
+                'source'  => 'string',
+                'embed'   => 'string',
+                'width'   => 'integer',
+                'height'  => 'integer',
+                'caption' => 'string',
+            ],
         ],
     ],
 ];
