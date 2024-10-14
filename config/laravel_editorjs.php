@@ -17,7 +17,7 @@ return [
                 'level' => [1, 2, 3, 4, 5, 6],
             ],
             'list'      => [
-                'type'  => [
+                'style'  => [
                     0 => 'ordered',
                     1 => 'unordered',
                 ],
@@ -129,6 +129,23 @@ return [
                     'allowedTags' => '*',
                 ],
             ],
+            'checklist' => [
+                'items' => [
+                    'type' => 'array',
+                    'data' => [
+                        '-' => [
+                            'type' => 'array',
+                            'data' => [
+                                'text' => [
+                                    'type' => 'string',
+                                    'allowedTags' => 'i,b,a[href],code[class],mark[class]',
+                                ],
+                                'checked' => 'boolean',
+                            ],
+                        ],
+                    ],
+                ],
+            ],
             // 'attaches'  => [
             //     'file'  => [
             //         'type' => 'array',
@@ -141,6 +158,14 @@ return [
             //     ],
             //     'title' => 'string',
             // ]
+            'embed' => [
+                'service' => 'string',
+                'source'  => 'string',
+                'embed'   => 'string',
+                'width'   => 'integer',
+                'height'  => 'integer',
+                'caption' => 'string',
+            ],
         ],
     ],
 ];

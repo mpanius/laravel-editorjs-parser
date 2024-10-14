@@ -1,9 +1,9 @@
-<div class="editor-js-block editor-js-checklist">
-    @foreach ($data['items'] as $item)
-        <div class="checklist-item"><span class="checkbox {{ $item['checked'] ? 'checkbox-checked' : '' }}"></span>
-            <div class="checkbox-text">
-                {{ $item['text'] }}
-            </div>
-        </div>
+<ul>
+    @foreach($data['items'] as $item)
+        <li>
+            <input type="checkbox" {{ $item['checked'] ? 'checked' : '' }} disabled>
+            <span>{!! $item['text'] !!}</span>
+        </li>
     @endforeach
-</div>
+</ul>
+

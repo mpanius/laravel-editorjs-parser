@@ -4,8 +4,9 @@ namespace AlAminFirdows\LaravelEditorJs;
 
 use EditorJS\EditorJS;
 use EditorJS\EditorJSException;
-use Illuminate\Support\Str;
+use Exception;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Str;
 
 class LaravelEditorJs
 {
@@ -14,6 +15,7 @@ class LaravelEditorJs
      *
      * @param string $data
      * @return string
+     * @throws Exception
      */
     public function render(string $data,$template_dir) : string
     {
@@ -47,13 +49,12 @@ class LaravelEditorJs
                 $renderedBlocks[] = view($viewName, [
                     'type' => $block['type'],
                     'data' => $block['data']
-                ])->toHtml();
+                ])->render();
             }
 
             return implode($renderedBlocks);
         } catch (EditorJSException $e) {
-            throw new \Exception($e->getMessage());
+            throw new Exception($e->getMessage());
         }
     }
-
 }

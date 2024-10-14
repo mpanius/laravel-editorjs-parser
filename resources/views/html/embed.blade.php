@@ -40,5 +40,9 @@
     <div class="prose prose-2xl my-2 mx-auto text-center">
         {{ $data['caption'] ?? '' }}
     </div>
+
+    @if($caption)
+        <div class="editorjs-embed__caption">{{ $caption }}</div>
+    @endif
 </div>
 
