@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3373ee3b-1271-493a-b5e4-1786bc36c3bf" name="Changes" comment="fix cdn address">
-      <change beforePath="$PROJECT_DIR$/.idea/phpunit.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -49,6 +48,7 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.laravel-idea.update-module-directories&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;last_opened_file_path&quot;: &quot;/Users/mikhailpanyushkin/code/laravel-editorjs-parser&quot;,
@@ -63,7 +63,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-php-predefined-a98d8de5180a-90914f2295cb-com.jetbrains.php.sharedIndexes-PS-242.23339.16" />
+        <option value="bundled-php-predefined-a98d8de5180a-5fbe0c30323e-com.jetbrains.php.sharedIndexes-PS-243.21565.202" />
       </set>
     </attachedChunks>
   </component>
@@ -81,6 +81,8 @@
       <workItem from="1721023611912" duration="1846000" />
       <workItem from="1728924571794" duration="828000" />
       <workItem from="1729636544511" duration="1298000" />
+      <workItem from="1732103987955" duration="2491000" />
+      <workItem from="1732734780168" duration="1307000" />
     </task>
     <task id="LOCAL-00001" summary="Fix versions">
       <option name="closed" value="true" />
