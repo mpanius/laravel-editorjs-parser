@@ -5,55 +5,84 @@ return [
         'tools' => [
             'paragraph' => [
                 'text' => [
-                    'type'        => 'string',
+                    'type' => 'string',
                     'allowedTags' => 'i,b,a[href],code[class],mark[class]',
                 ],
             ],
-            'header'    => [
-                'text'  => [
-                    'type'        => 'string',
+            'header' => [
+                'text' => [
+                    'type' => 'string',
                     'allowedTags' => 'a[href],mark[class]',
                 ],
                 'level' => [1, 2, 3, 4, 5, 6],
             ],
-            'list'      => [
-                'style'  => [
-                    0 => 'ordered',
-                    1 => 'unordered',
+            'list' => [
+                // Если в JSON присутствует поле meta в data, оно описывается здесь:
+                'meta' => [
+                    'type' => 'array',
+                    'data' => [], // нет вложенной структуры
+                    'required' => false,
                 ],
+                // Поле style — строка, принимающая значения "ordered" или "unordered"
+                'style' => [
+                    'type' => 'string',
+                    'allowed' => ['ordered', 'unordered'],
+                ],
+                // Поле items — массив элементов. Каждый элемент — это массив с тремя ключами:
                 'items' => [
                     'type' => 'array',
                     'data' => [
                         '-' => [
-                            'type'        => 'string',
-                            'allowedTags' => 'i,b,a[href],code[class],mark[class]',
+                            'type' => 'array',
+                            'data' => [
+                                // Обязательное текстовое содержимое
+                                'content' => [
+                                    'type' => 'string',
+                                    'allowedTags' => 'i,b,a[href],code[class],mark[class]',
+                                    'required' => false,
+
+                                ],
+                                // Опциональное поле meta, если присутствует (как пустой массив)
+                                'meta' => [
+                                    'type' => 'array',
+                                    'data' => [],
+                                    'required' => false,
+                                ],
+                                // Опциональное поле items — для вложенных списков (если вдруг понадобятся)
+                                'items' => [
+                                    'type' => 'array',
+                                    'data' => [],
+                                    'required' => false,
+                                ],
+
+                            ],
                         ],
                     ],
                 ],
             ],
-            'linkTool'  => [
+            'linkTool' => [
                 'link' => 'string',
                 'meta' => [
                     'type' => 'array',
                     'data' => [
-                        'title'       => [
+                        'title' => [
                             'type' => 'string',
                         ],
                         'description' => [
                             'type' => 'string',
                         ],
-                        'url'         => [
-                            'type'     => 'string',
+                        'url' => [
+                            'type' => 'string',
                             'required' => false,
                         ],
-                        'domain'      => [
-                            'type'     => 'string',
+                        'domain' => [
+                            'type' => 'string',
                             'required' => false,
                         ],
-                        'image'       => [
-                            'type'     => 'array',
+                        'image' => [
+                            'type' => 'array',
                             'required' => false,
-                            'data'     => [
+                            'data' => [
                                 'url' => [
                                     'type' => 'string',
                                 ],
@@ -62,39 +91,57 @@ return [
                     ],
                 ],
             ],
-            'image'     => [
-                'file'           => [
+            'image' => [
+                'file' => [
                     'type' => 'array',
                     'data' => [
-                        'width'  => [
-                            'type'     => 'integer',
+                        'width' => [
+                            'type' => 'integer',
                             'required' => false,
                         ],
                         'height' => [
-                            'type'     => 'integer',
+                            'type' => 'integer',
                             'required' => false,
                         ],
-                        'url'    => 'string',
+                        'media_id' => [
+                            'type' => 'integer',
+                            'required' => false,
+                        ],
+                        'url' => 'string',
+                        'mime' => [
+                            'type' => 'string',
+                            'required' => false,
+                        ],
                     ],
                 ],
-                'caption'        => [
-                    'type'        => 'string',
+                'caption' => [
+                    'type' => 'string',
                     'allowedTags' => 'i,b,a[href],code[class],mark[class]',
                 ],
-                'withBorder'     => 'boolean',
+                'alt' => [
+                    'type' => 'string',
+                    'required' => false,
+                ],
+                'link' => [
+                    'type' => 'string',
+                    'required' => false,
+                ],
+
+                'withBorder' => 'boolean',
                 'withBackground' => 'boolean',
-                'stretched'      => 'boolean',
+                'stretched' => 'boolean',
+
             ],
-            'table'     => [
+            'table' => [
                 'withHeadings' => 'boolean',
-                'content'      => [
+                'content' => [
                     'type' => 'array',
                     'data' => [
                         '-' => [
                             'type' => 'array',
                             'data' => [
                                 '-' => [
-                                    'type'        => 'string',
+                                    'type' => 'string',
                                     'allowedTags' => 'i,b,a[href],code[class],mark[class]',
                                 ],
                             ],
@@ -102,13 +149,13 @@ return [
                     ],
                 ],
             ],
-            'quote'     => [
-                'text'      => [
-                    'type'        => 'string',
+            'quote' => [
+                'text' => [
+                    'type' => 'string',
                     'allowedTags' => 'i,b,a[href],code[class],mark[class]',
                 ],
-                'caption'   => [
-                    'type'        => 'string',
+                'caption' => [
+                    'type' => 'string',
                     'allowedTags' => 'i,b,a[href],code[class],mark[class]',
                 ],
                 'alignment' => [
@@ -116,16 +163,16 @@ return [
                     1 => 'center',
                 ],
             ],
-            'code'      => [
+            'code' => [
                 'code' => [
-                    'type'        => 'string',
+                    'type' => 'string',
                     'allowedTags' => '*',
                 ],
             ],
             'delimiter' => [],
-            'raw'       => [
+            'raw' => [
                 'html' => [
-                    'type'        => 'string',
+                    'type' => 'string',
                     'allowedTags' => '*',
                 ],
             ],
@@ -160,10 +207,10 @@ return [
             // ]
             'embed' => [
                 'service' => 'string',
-                'source'  => 'string',
-                'embed'   => 'string',
-                'width'   => 'integer',
-                'height'  => 'integer',
+                'source' => 'string',
+                'embed' => 'string',
+                'width' => 'integer',
+                'height' => 'integer',
                 'caption' => 'string',
             ],
         ],
