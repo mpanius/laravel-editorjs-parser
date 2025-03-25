@@ -36,7 +36,7 @@
 	"extra": {
 		"laravel": {
 			"providers": [
-				"LaravelEditorJsParserServiceProvider"
+				"Ixbtcom\\LaravelEditorJsParser\\LaravelEditorJsParserServiceProvider"
 			]
 		}
 	}
