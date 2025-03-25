@@ -1,4 +1,3 @@
-<!-- default paragraph -->
-<p class="editor-js-paragraph">
-    {!! $data['text'] ?? '' !!}
+<p>
+    {!! html_entity_decode($data['text'] ?? '') !!}
 </p>

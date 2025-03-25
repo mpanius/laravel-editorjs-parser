@@ -1,2 +1,1 @@
-<!-- default raw -->
-{{ $data['html'] ?? '' }}
+{!! $data['html'] ?? '' !!}

@@ -1,25 +1,27 @@
-<!-- default list -->
-@if($data['style']  === 'unordered')
+<div class="mx-auto max-w-4xl px-4">
 
-    <ul class="editor-js-list editor-js-list-unordered">
+    @if($data['style']  === 'unordered')
 
-        @foreach ($data['items'] as $item)
-            <li class="editor-js-unordered-list-element">
-                {!! $item !!}
-            </li>
-        @endforeach
-    </ul>
+        <ul class="list-disc">
 
-@else
+            @foreach ($data['items'] as $item)
+                <li>
+                    {!! is_string($item) ? $item : data_get($item,'content') !!}
+                </li>
+            @endforeach
+        </ul>
 
-    <ol class="editor-js-list editor-js-list-ordered">
+    @else
 
-        @foreach ($data['items'] as $item)
-            <li class="editor-js-ordered-list-element">
-                {!! $item !!}
-            </li>
-        @endforeach
-    </ol>
+        <ol class="list-decimal">
 
-@endif
+            @foreach ($data['items'] as $item)
+                <li>
+                        {!! is_string($item) ? $item : data_get($item,'content') !!}
+                </li>
+            @endforeach
+        </ol>
+
+    @endif
+</div>
 

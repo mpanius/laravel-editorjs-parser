@@ -1,8 +1,8 @@
 <?php
 
-namespace AlAminFirdows\LaravelEditorJs\Tests\Unit;
+namespace Ixbtcom\LaravelEditorJsParser\Tests\Unit;
 
-use AlAminFirdows\LaravelEditorJs\Tests\TestCase;
+use Ixbtcom\LaravelEditorJsParser\Tests\TestCase;
 
 class RenderTest extends TestCase
 {

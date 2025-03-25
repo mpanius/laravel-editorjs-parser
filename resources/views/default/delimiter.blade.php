@@ -1,2 +1,3 @@
-<!-- default delimiter -->
-<div class="editor-js-delimiter"></div>
+<div class="editor-js-block">
+    <div class="editor-js-delimiter"></div>
+</div>

@@ -1,11 +1,12 @@
 <div class="mx-auto">
+
     @if($data['style']  === 'unordered')
 
         <ul class="list-disc">
 
             @foreach ($data['items'] as $item)
                 <li>
-                    {!! $item !!}
+                    {!! is_string($item) ? $item : data_get($item,'content') !!}
                 </li>
             @endforeach
         </ul>
@@ -16,7 +17,7 @@
 
             @foreach ($data['items'] as $item)
                 <li>
-                    {!! $item !!}
+                        {!! is_string($item) ? $item : data_get($item,'content') !!}
                 </li>
             @endforeach
         </ol>

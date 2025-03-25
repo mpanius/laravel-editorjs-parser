@@ -1,37 +1,35 @@
-![image](https://user-images.githubusercontent.com/30468274/162574530-f9af87ef-79d4-41de-8ddb-9ebf60563ac9.png)
-
-# Laravel-Editor.js
+# Laravel-Editor-Js-Parser
 
 A simple editor.js html parser for Laravel
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/alaminfirdows/laravel-editorjs.svg?style=for-the-badge)](https://packagist.org/packages/alaminfirdows/laravel-editorjs)
-[![Total Downloads](https://img.shields.io/packagist/dt/alaminfirdows/laravel-editorjs.svg?style=for-the-badge)](https://packagist.org/packages/alaminfirdows/laravel-editorjs)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/ixbtcom/laravel-editorjs-parser.svg?style=for-the-badge)](https://packagist.org/packages/ixbtcom/laravel-editorjs-parser)
+[![Total Downloads](https://img.shields.io/packagist/dt/ixbtcom/laravel-editorjs-parser.svg?style=for-the-badge)](https://packagist.org/packages/ixbtcom/laravel-editorjs-parser)
 
 ## Features
 - Render Editor.js output
 - Custom block rendering
 
 ## Demo
-You can can play with the demo [here](https://github.com/alaminfirdows/laravel-editorjs-demo)
+You can can play with the demo [here](https://github.com/ixbtcom/laravel-editorjs-parser-demo)
 
 ## Installation
 
 You can install the package via composer:
 
 ```bash
-composer require alaminfirdows/laravel-editorjs
+composer require ixbtcom/laravel-editorjs-parser
 ```
 
 You can publish the config file with:
 
 ```bash
-php artisan vendor:publish --tag="laravel_editorjs-config"
+php artisan vendor:publish --tag="laravel-editorjs-parser-config"
 ```
 
 Optionally, you can publish the views using
 
 ```bash
-php artisan vendor:publish --tag="laravel_editorjs-views"
+php artisan vendor:publish --tag="laravel-editorjs-parser-views"
 ```
 
 ## Usage
@@ -40,7 +38,7 @@ php artisan vendor:publish --tag="laravel_editorjs-views"
 use App\Models\Post;
 
 $post = Post::find(1);
-echo LaravelEditorJs::render($post->body);
+echo LaravelEditorJsParser::render($post->body, $template);
 ```
 
 Defining An Accessor
@@ -51,13 +49,13 @@ Defining An Accessor
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use AlAminFirdows\LaravelEditorJs\Facades\LaravelEditorJs;
+use Ixbtcom\LaravelEditorJsParser\Facades\LaravelEditorJsParser;
 
 class Post extends Model
 {
     public function getBodyAttribute()
     {
-        return LaravelEditorJs::render($this->attributes['body']);
+        return LaravelEditorJsParser::render($this->attributes['body'], 'default');
     }
 }
 
@@ -67,20 +65,16 @@ echo $post->body;
 
 ## Versioning
 
-| Laravel    | Supported |
-| ---------- | --------- |
-| 10.x, 11.x | ✅ 2.x    |
-| 9.x        | ✅ 1.1    |
-| 8.x        | ✅ 1.0    |
+| Laravel         | Supported |
+|-----------------| --------- |
+| 10.x, 11.x, 12x | ✅ 2.x    |
+| 9.x             | ✅ 1.1    |
+| 8.x             | ✅ 1.0    |
 
-## Contributing
-
-Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ## Credits
-
+- [Mikhail Panyushkin](https://github.com/mpanius)
 - [Al-Amin Firdows](https://github.com/alaminfirdows)
-- [All Contributors](../../contributors)
 
 ## License
 

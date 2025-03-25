@@ -1,6 +1,6 @@
 <?php
 
-namespace AlAminFirdows\LaravelEditorJs;
+namespace Ixbtcom\LaravelEditorJsParser;
 
 use EditorJS\EditorJS;
 use EditorJS\EditorJSException;
@@ -8,7 +8,7 @@ use Exception;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Str;
 
-class LaravelEditorJs
+class LaravelEditorJsParser
 {
     /**
      * Render blocks
@@ -17,11 +17,11 @@ class LaravelEditorJs
      * @return string
      * @throws Exception
      */
-    public function render(string $data,$template_dir) : string
+    public function render(string $data,$template_dir = 'default') : string
     {
 
         try {
-            $configJson = json_encode(config('laravel_editorjs.config') ?: []);
+            $configJson = json_encode(config('laravel-editorjs-parser.config') ?: []);
 
             $editor = new EditorJS($data, $configJson);
 
@@ -31,17 +31,17 @@ class LaravelEditorJs
 
             foreach ($editor->getBlocks() as $block) {
 
-                $viewName = "laravel_editorjs::{$template_dir}." . Str::snake($block['type'], '-');
+                $viewName = "laravel-editorjs-parser::{$template_dir}." . Str::snake($block['type'], '-');
 
                 if (! View::exists($viewName)) {
                     if($template_dir === 'default')
                     {
-                        $viewName = "laravel_editorjs::default.not-found";
+                        $viewName = "laravel-editorjs-parser::default.not-found";
                     } else
                     {
-                        $viewName = "laravel_editorjs::default." . Str::snake($block['type'], '-');
+                        $viewName = "laravel-editorjs-parser::default." . Str::snake($block['type'], '-');
                         if(!View::exists($viewName)){
-                            $viewName = "laravel_editorjs::default.not-found";
+                            $viewName = "laravel-editorjs-parser::default.not-found";
                         }
                     }
                 }

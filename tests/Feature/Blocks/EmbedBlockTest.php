@@ -1,8 +1,8 @@
 <?php
 
-namespace AlAminFirdows\LaravelEditorJs\Tests\Feature\Blocks;
+namespace Ixbtcom\LaravelEditorJsParser\Tests\Feature\Blocks;
 
-use AlAminFirdows\LaravelEditorJs\Tests\TestCase;
+use Ixbtcom\LaravelEditorJsParser\Tests\TestCase;
 
 class EmbedBlockTest extends TestCase
 {

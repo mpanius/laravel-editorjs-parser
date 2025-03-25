@@ -1,2 +1,5 @@
-<!-- default heading -->
-<h{{ $data['level'] ?? 1 }} class="editor-js-header-{{$data['level'] ?? 1}}>{{ $data['text']}}</h{{ $data['level'] ?? 1 }}>
+<div class="prose prose-2xl h{$level}">
+
+    {{ $data['text'] }}
+
+</div>

@@ -1,16 +1,16 @@
 <?php
 
-namespace AlAminFirdows\LaravelEditorJs\Tests;
+namespace Ixbtcom\LaravelEditorJsParser\Tests;
 
-use AlAminFirdows\LaravelEditorJs\Facades\LaravelEditorJs;
-use AlAminFirdows\LaravelEditorJs\LaravelEditorJsServiceProvider;
+use Ixbtcom\LaravelEditorJsParser\Facades\LaravelEditorJsParser;
+use Ixbtcom\LaravelEditorJsParser\LaravelEditorJsParserServiceProvider;
 
 abstract class TestCase extends \Orchestra\Testbench\TestCase
 {
     protected function getPackageProviders($app)
     {
         return [
-            LaravelEditorJsServiceProvider::class,
+            LaravelEditorJsParserServiceProvider::class,
         ];
     }
 
@@ -25,7 +25,7 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
 
     protected function renderBlocks(string $content)
     {
-        return preg_replace('/\R+/', '', LaravelEditorJs::render($content));
+        return preg_replace('/\R+/', '', LaravelEditorJsParser::render($content));
     }
 
     public function assertHtml(string $expectedHtml, string $actualHtml, string $message = ''): void

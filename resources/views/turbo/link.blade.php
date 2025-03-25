@@ -5,14 +5,15 @@
             {{ $data['meta']['description'] }}
         </p>
         <span>
-                <a target="_blank" class="no-underline text-sm" href="{{$data['link']}}">{{parse_url($data['link'],PHP_URL_HOST)}}</a>
+                <a target="_blank" class="no-underline text-sm"
+                   href="{{$data['link']}}">{{parse_url($data['link'],PHP_URL_HOST)}}</a>
         </span>
 
     </div>
     @if ($data['meta']['image']['url'] ?? null)
         <div class="col-span-3 md:col-span-1 md:mt-0">
 
-            <img class="md:h-full md:object-cover my-1" style="margin-top:0;" src="{{ $data['meta']['image']['url'] }}">
+            <img class="md:h-full md:object-cover my-1" style="margin-top:0;" src="{{ $data['meta']['image']['url'] }}" alt="{{ data_get($data,'meta.title') }}">
 
         </div>
     @endif
