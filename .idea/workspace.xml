@@ -4,64 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1906de4a-43ec-4239-891a-f1bd4243a4fb" name="Changes" comment="fixez">
-      <change afterPath="$PROJECT_DIR$/config/laravel-editorjs-parser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/laravel-editorjs-parser.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/laravel-editorjs-parser.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/laravel-idea.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/laravel-idea.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CONTRIBUTING.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LICENSE.md" beforeDir="false" afterPath="$PROJECT_DIR$/LICENSE.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/amp/embed.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/amp/embed.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/amp/image.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/amp/image.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/blocks/list.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/blocks/paragraph.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/default/checklist.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/default/checklist.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/default/code.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/default/code.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/default/content.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/default/content.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/default/delimiter.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/default/delimiter.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/default/embed.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/default/embed.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/default/gallery.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/default/gallery.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/default/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/default/header.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/default/heading.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/default/heading.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/default/image.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/default/image.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/default/link.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/default/link.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/default/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/default/list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/default/not-found.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/default/not-found.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/default/paragraph.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/default/paragraph.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/default/quote.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/default/quote.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/default/raw.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/default/raw.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/default/table.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/default/table.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/html/checklist.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/html/code.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/html/content.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/html/delimiter.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/html/embed.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/html/gallery.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/html/header.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/html/heading.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/html/image.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/html/link.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/html/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/amp/list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/html/not-found.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/html/paragraph.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/html/quote.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/html/raw.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/html/table.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/turbo/image.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/turbo/image.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/turbo/link.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/turbo/link.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/zen/quote.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/zen/quote.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Facades/LaravelEditorJs.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Facades/LaravelEditorJsParser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LaravelEditorJs.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/LaravelEditorJsParser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LaravelEditorJsServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/LaravelEditorJsParserServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/Blocks/ChecklistTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Blocks/ChecklistTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/Blocks/EmbedBlockTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Blocks/EmbedBlockTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/Blocks/ListBlockTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Blocks/ListBlockTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Feature/Blocks/ParagraphBlockTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Feature/Blocks/ParagraphBlockTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/TestCase.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/TestCase.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Unit/RenderTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/RenderTest.php" afterDir="false" />
-    </list>
+    <list default="true" id="1906de4a-43ec-4239-891a-f1bd4243a4fb" name="Changes" comment="fixez - parser" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -74,6 +17,12 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "mpanius"
+  }
+}]]></component>
   <component name="GithubPullRequestsUISettings"><![CDATA[{
   "selectedUrlAndAccountId": {
     "url": "git@github.com:mpanius/laravel-editorjs-parser.git",
@@ -252,7 +201,7 @@
       <workItem from="1738067886899" duration="1357000" />
       <workItem from="1742644077294" duration="32000" />
       <workItem from="1742741683362" duration="747000" />
-      <workItem from="1742903246467" duration="4198000" />
+      <workItem from="1742903246467" duration="5953000" />
     </task>
     <task id="LOCAL-00001" summary="fixez">
       <option name="closed" value="true" />
@@ -270,7 +219,15 @@
       <option name="project" value="LOCAL" />
       <updated>1742644104629</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="fixez - parser">
+      <option name="closed" value="true" />
+      <created>1742907669196</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1742907669196</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -278,6 +235,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fixez" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixez" />
+    <MESSAGE value="fixez - parser" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixez - parser" />
   </component>
 </project>
