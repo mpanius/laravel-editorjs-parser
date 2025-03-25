@@ -68,7 +68,6 @@ return [
                                 'items' => [
                                     'type' => 'array',
                                     'data' => [
-
                                         '-' => [
                                             'type' => 'array',
                                             'data' => [

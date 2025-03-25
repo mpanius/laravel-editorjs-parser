@@ -29,6 +29,7 @@ class LaravelEditorJsParser
 
 
 
+
             foreach ($editor->getBlocks() as $block) {
 
                 $viewName = "laravel-editorjs-parser::{$template_dir}." . Str::snake($block['type'], '-');
