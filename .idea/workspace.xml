@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1906de4a-43ec-4239-891a-f1bd4243a4fb" name="Changes" comment="fixez-provider" />
+    <list default="true" id="1906de4a-43ec-4239-891a-f1bd4243a4fb" name="Changes" comment="fixez-provider">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/laravel-editorjs-parser.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/laravel-editorjs-parser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LaravelEditorJsParser.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/LaravelEditorJsParser.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -202,6 +206,8 @@
       <workItem from="1742644077294" duration="32000" />
       <workItem from="1742741683362" duration="747000" />
       <workItem from="1742903246467" duration="8310000" />
+      <workItem from="1742916819117" duration="417000" />
+      <workItem from="1742917912942" duration="5585000" />
     </task>
     <task id="LOCAL-00001" summary="fixez">
       <option name="closed" value="true" />
@@ -243,7 +249,15 @@
       <option name="project" value="LOCAL" />
       <updated>1742914269807</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="fixez-provider">
+      <option name="closed" value="true" />
+      <created>1742916909520</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1742916909520</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

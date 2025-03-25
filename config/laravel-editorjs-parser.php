@@ -17,19 +17,91 @@ return [
                 'level' => [1, 2, 3, 4, 5, 6],
             ],
             'list' => [
-                // Поле meta - массив метаданных списка
+                // Если в JSON присутствует поле meta в data, оно описывается здесь:
                 'meta' => [
                     'type' => 'array',
+                    'data' => [
+                        '-' => [
+                            'type' => 'string',
+                            'required' => false
+                        ]
+                    ], // нет вложенной структуры
                     'required' => false,
                 ],
-                // Поле style — строка, принимающая значения "ordered", "unordered" или "checklist"
+                // Поле style — строка, принимающая значения "ordered" или "unordered"
                 'style' => [
                     'type' => 'string',
-                    'allowed' => ['ordered', 'unordered', 'checklist'],
+                    'allowed' => ['ordered', 'unordered'],
                 ],
-                // Поле items — массив элементов списка, может содержать строки или объекты
+                // Поле items — массив элементов. Каждый элемент — это массив с тремя ключами:
                 'items' => [
                     'type' => 'array',
+                    'data' => [
+                        '-' => [
+                            'type' => 'array',
+                            'data' => [
+                                // Обязательное текстовое содержимое
+                                'content' => [
+                                    'type' => 'string',
+                                    'required' => false
+
+                                ],
+                                'checked' => [
+                                    'type' => 'boolean',
+                                    'required' => false
+                                ],
+                                // Опциональное поле meta, если присутствует (как пустой массив)
+                                'meta' => [
+                                    'type' => 'array',
+                                    'data' => [
+
+                                        'checked' => [
+                                            'type' => 'boolean',
+                                            'required' => false
+                                        ],
+
+
+                                    ], // нет вложенной структуры
+                                    'required' => false,
+                                ],
+                                // Опциональное поле items — для вложенных списков (если вдруг понадобятся)
+                                'items' => [
+                                    'type' => 'array',
+                                    'data' => [
+
+                                        '-' => [
+                                            'type' => 'array',
+                                            'data' => [
+                                                'meta' => ['type' => 'array',
+                                                    'data' => [
+                                                        '-' => [
+                                                            'checked' => [
+                                                                'type' => 'boolean',
+                                                                'required' => false
+                                                            ]
+                                                        ],
+                                                    ],
+                                                    'required' => false],
+                                                'items' => [
+                                                    'type' => 'array',
+                                                    'data' => [],
+                                                    'required' => false
+                                                ],
+                                                'content' => [
+                                                    'type' => 'string',
+                                                    'required' => false
+                                                ],
+                                            ],
+                                            'required' => false,
+                                        ]
+
+                                    ], // нет вложенной структуры
+                                    'required' => false,
+                                ],
+
+                            ],
+                        ],
+                    ],
                 ],
             ],
             'linkTool' => [
@@ -94,22 +166,21 @@ return [
                     'type' => 'string',
                     'required' => false,
                 ],
+                'error' => [
+                    'type' => 'string',
+                    'required' => false,
+                ],
                 'link' => [
                     'type' => 'string',
                     'required' => false,
                 ],
-
                 'withBorder' => 'boolean',
                 'withBackground' => 'boolean',
                 'stretched' => 'boolean',
-
             ],
             'table' => [
                 'withHeadings' => 'boolean',
-                'stretched' => [
-                    'type' => 'boolean',
-                    'required' => false
-                ],
+                'stretched' => 'boolean',
                 'content' => [
                     'type' => 'array',
                     'data' => [
