@@ -17,9 +17,8 @@ class LaravelEditorJsParser
      * @return string
      * @throws Exception
      */
-    public function render(string $data,$template_dir = 'default') : string
+    public function render(string $data, $template_dir = 'default') : string
     {
-
         try {
             $configJson = json_encode(config('laravel-editorjs-parser.config') ?: []);
 
@@ -27,34 +26,43 @@ class LaravelEditorJsParser
 
             $renderedBlocks = [];
 
+            foreach ($editor->getBlocks() as $index => $block) {
+                try {
+                    $blockId = $block['id'] ?? "блок #{$index}";
+                    $blockType = $block['type'] ?? 'unknown';
+                    
+                    $viewName = "laravel-editorjs-parser::{$template_dir}." . Str::snake($blockType, '-');
 
-
-            foreach ($editor->getBlocks() as $block) {
-
-                $viewName = "laravel-editorjs-parser::{$template_dir}." . Str::snake($block['type'], '-');
-
-                if (! View::exists($viewName)) {
-                    if($template_dir === 'default')
-                    {
-                        $viewName = "laravel-editorjs-parser::default.not-found";
-                    } else
-                    {
-                        $viewName = "laravel-editorjs-parser::default." . Str::snake($block['type'], '-');
-                        if(!View::exists($viewName)){
+                    if (! View::exists($viewName)) {
+                        if($template_dir === 'default') {
                             $viewName = "laravel-editorjs-parser::default.not-found";
+                        } else {
+                            $viewName = "laravel-editorjs-parser::default." . Str::snake($blockType, '-');
+                            if(!View::exists($viewName)){
+                                $viewName = "laravel-editorjs-parser::default.not-found";
+                            }
                         }
                     }
-                }
 
-                $renderedBlocks[] = view($viewName, [
-                    'type' => $block['type'],
-                    'data' => $block['data']
-                ])->render();
+                    $renderedBlocks[] = view($viewName, [
+                        'type' => $blockType,
+                        'data' => $block['data'] ?? []
+                    ])->render();
+                } catch (\Throwable $blockException) {
+                    $blockId = $block['id'] ?? "блок #{$index}";
+                    $blockType = $block['type'] ?? 'unknown';
+                    throw new Exception("Ошибка при обработке блока {$blockId} типа '{$blockType}': {$blockException->getMessage()}");
+                }
             }
 
             return implode($renderedBlocks);
         } catch (EditorJSException $e) {
-            throw new Exception($e->getMessage());
+            throw new Exception("Ошибка валидации EditorJS: {$e->getMessage()}");
+        } catch (\Throwable $e) {
+            if (strpos($e->getMessage(), 'Ошибка при обработке блока') !== false) {
+                throw $e; // Пробрасываем ошибку с информацией о блоке
+            }
+            throw new Exception("Ошибка при обработке редактора: {$e->getMessage()}");
         }
     }
 }

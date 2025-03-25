@@ -17,47 +17,19 @@ return [
                 'level' => [1, 2, 3, 4, 5, 6],
             ],
             'list' => [
-                // Если в JSON присутствует поле meta в data, оно описывается здесь:
+                // Поле meta - массив метаданных списка
                 'meta' => [
                     'type' => 'array',
-                    'data' => [], // нет вложенной структуры
                     'required' => false,
                 ],
-                // Поле style — строка, принимающая значения "ordered" или "unordered"
+                // Поле style — строка, принимающая значения "ordered", "unordered" или "checklist"
                 'style' => [
                     'type' => 'string',
-                    'allowed' => ['ordered', 'unordered'],
+                    'allowed' => ['ordered', 'unordered', 'checklist'],
                 ],
-                // Поле items — массив элементов. Каждый элемент — это массив с тремя ключами:
+                // Поле items — массив элементов списка, может содержать строки или объекты
                 'items' => [
                     'type' => 'array',
-                    'data' => [
-                        '-' => [
-                            'type' => 'array',
-                            'data' => [
-                                // Обязательное текстовое содержимое
-                                'content' => [
-                                    'type' => 'string',
-                                    'allowedTags' => 'i,b,a[href],code[class],mark[class]',
-                                    'required' => false,
-
-                                ],
-                                // Опциональное поле meta, если присутствует (как пустой массив)
-                                'meta' => [
-                                    'type' => 'array',
-                                    'data' => [],
-                                    'required' => false,
-                                ],
-                                // Опциональное поле items — для вложенных списков (если вдруг понадобятся)
-                                'items' => [
-                                    'type' => 'array',
-                                    'data' => [],
-                                    'required' => false,
-                                ],
-
-                            ],
-                        ],
-                    ],
                 ],
             ],
             'linkTool' => [
@@ -134,6 +106,10 @@ return [
             ],
             'table' => [
                 'withHeadings' => 'boolean',
+                'stretched' => [
+                    'type' => 'boolean',
+                    'required' => false
+                ],
                 'content' => [
                     'type' => 'array',
                     'data' => [
