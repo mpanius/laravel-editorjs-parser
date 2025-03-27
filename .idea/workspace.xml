@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1906de4a-43ec-4239-891a-f1bd4243a4fb" name="Changes" comment="fix parser">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/default/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/default/list.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/default/quote.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/default/quote.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -214,7 +213,8 @@
       <workItem from="1742927870664" duration="3711000" />
       <workItem from="1743073217792" duration="339000" />
       <workItem from="1743112959583" duration="104000" />
-      <workItem from="1743113111005" duration="171000" />
+      <workItem from="1743113111005" duration="225000" />
+      <workItem from="1743113500331" duration="13000" />
     </task>
     <task id="LOCAL-00001" summary="fixez">
       <option name="closed" value="true" />
@@ -304,7 +304,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743112977285</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="fix parser">
+      <option name="closed" value="true" />
+      <created>1743113330669</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1743113330669</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

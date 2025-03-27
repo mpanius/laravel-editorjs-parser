@@ -11,7 +11,7 @@
             <div class="text-gray-600 italic">{!! $data['text'] ?? '' !!}</div>
         </div>
         @if(!empty($data['caption']))
-            <footer class="mt-2 flex font-semibold mr-12">
+            <footer class="mt-2 flex font-semibold mr-8">
                 <div class="flex text-gray-600 ml-auto mr-8 not-italic"> {{$data['caption']}}</div>
             </footer>
         @endif
