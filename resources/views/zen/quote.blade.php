@@ -6,7 +6,6 @@
             <span><br /><b>&nbsp;—&nbsp;{{$data['caption']}}</b></span>
         @endisset
     </blockquote>
-
 @endisset
 
 

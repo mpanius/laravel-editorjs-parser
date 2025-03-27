@@ -1,4 +1,4 @@
-<div class="editor-js-block border-amber-50 border rounded-xl bg-amber-50 p-4">
+<div class="editor-js-block editor-js-quote border-amber-50 border rounded-xl bg-amber-50 p-4">
     <blockquote class="relative border-0 not-prose" style="margin-top: 0.5rem; margin-bottom: 0.5rem;">
         <svg class="absolute bottom-0 right-2 h-8 w-8 text-gray-200 dark:text-gray-700 rotate-180"
              width="10" height="10" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"
