@@ -1,4 +1,4 @@
-<div class="mx-auto max-w-4xl px-4">
+<div class="mx-auto max-w-3xl px-4">
     @if($data['style'] === 'checklist')
         <ul class="checklist">
             @foreach ($data['items'] as $item)
