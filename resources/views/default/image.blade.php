@@ -35,6 +35,9 @@
         
         // Вычисляем соотношение сторон для правильного определения высоты
         $aspectRatio = $originalWidth > 0 && $originalHeight > 0 ? $originalWidth / $originalHeight : 0;
+
+        // Вычисляем высоту для самой большой версии изображения (desktop), чтобы задать правильные размеры тегу img
+        $desktopHeight = $aspectRatio > 0 ? round($desktopWidth / $aspectRatio) : 0;
     @endphp
     @if(!empty($imageUrl))
     <a href="{{normalize($imageUrl)}}" class="glightbox"
@@ -49,8 +52,9 @@
                         decoding="async"
                         src="{{ img($imageUrl, $mobileWidth) }}"
                         @if($originalWidth > 0 && $originalHeight > 0)
-                            width="{{ $originalWidth }}"
-                            height="{{ $originalHeight }}"
+                            {{-- Use dimensions of the largest image requested in srcset to prevent browser upscaling --}}
+                            width="{{ $desktopWidth }}"
+                            height="{{ $desktopHeight }}"
                         @endif
                         @if(!empty($data['caption']))
                             alt="{{ $data['caption'] }}"
