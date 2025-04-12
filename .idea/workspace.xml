@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="1906de4a-43ec-4239-891a-f1bd4243a4fb" name="Changes" comment="исправили картинки чтобы их не увеличивали">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/amp/image.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/amp/image.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/default/image.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/default/image.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -219,6 +221,7 @@
       <workItem from="1744487296457" duration="25000" />
       <workItem from="1744487545137" duration="21000" />
       <workItem from="1744487573536" duration="6000" />
+      <workItem from="1744487812121" duration="3821000" />
     </task>
     <task id="LOCAL-00001" summary="fixez">
       <option name="closed" value="true" />
@@ -340,7 +343,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744487577262</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="исправили картинки чтобы их не увеличивали">
+      <option name="closed" value="true" />
+      <created>1744487820063</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1744487820063</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
