@@ -4,27 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1906de4a-43ec-4239-891a-f1bd4243a4fb" name="Changes" comment="Поправили рендеры для amp и так далее">
-      <change afterPath="$PROJECT_DIR$/resources/views/amp/checklist.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/amp/code.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/amp/delimiter.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/amp/gallery.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/amp/heading.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/amp/link.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/amp/paragraph.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/amp/raw.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/amp/table.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/rss/delimiter.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/rss/heading.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/rss/image.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/rss/list.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/rss/not-found.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/rss/paragraph.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/rss/quote.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/amp/image.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/amp/image.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/default/image.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/default/image.blade.php" afterDir="false" />
-    </list>
+    <list default="true" id="1906de4a-43ec-4239-891a-f1bd4243a4fb" name="Changes" comment="Поправили рендеры для amp и так далее" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -238,6 +218,7 @@
       <workItem from="1744487545137" duration="21000" />
       <workItem from="1744487573536" duration="6000" />
       <workItem from="1744487812121" duration="3845000" />
+      <workItem from="1744494139857" duration="9000" />
     </task>
     <task id="LOCAL-00001" summary="fixez">
       <option name="closed" value="true" />
@@ -375,7 +356,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744494132233</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Поправили рендеры для amp и так далее">
+      <option name="closed" value="true" />
+      <created>1744494144354</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1744494144354</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
