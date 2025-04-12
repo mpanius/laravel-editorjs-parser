@@ -26,7 +26,9 @@
         
         // Максимальная ширина контейнера публикации
         $maxWidth = 920;
-        
+        // Максимальная высота изображения на десктопе
+        $maxDesktopHeight = 700; 
+
         // Определяем оптимальные размеры для разных устройств
         // Если изображение меньше максимальной ширины, используем его оригинальный размер
         $desktopWidth = $originalWidth > 0 && $originalWidth < $maxWidth ? $originalWidth : $maxWidth;
@@ -45,7 +47,8 @@
         <div class="image-container" @if($aspectRatio > 0) style="aspect-ratio: {{ $aspectRatio }}" @endif>
             @if(!$isSmallImage)
                 <picture>
-                    <source media="(min-width: 1024px)" srcset="{{ img($imageUrl, $desktopWidth) }}">
+                    {{-- Desktop: Limit by both max width and max height --}}
+                    <source media="(min-width: 1024px)" srcset="{{ img($imageUrl, $desktopWidth, $maxDesktopHeight) }}">
                     <source media="(min-width: 640px)" srcset="{{ img($imageUrl, $tabletWidth) }}">
                     <img 
                         loading="lazy"
