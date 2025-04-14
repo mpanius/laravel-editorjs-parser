@@ -4,7 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1906de4a-43ec-4239-891a-f1bd4243a4fb" name="Changes" comment="Поправили рендеры для amp и так далее" />
+    <list default="true" id="1906de4a-43ec-4239-891a-f1bd4243a4fb" name="Changes" comment="Поправили рендеры для amp и так далее">
+      <change beforePath="$PROJECT_DIR$/resources/views/amp/checklist.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/amp/code.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/amp/delimiter.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/amp/embed.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/amp/gallery.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/amp/heading.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/amp/image.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/amp/image.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/amp/link.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/amp/paragraph.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/amp/quote.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/amp/raw.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/amp/table.blade.php" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -219,6 +232,7 @@
       <workItem from="1744487573536" duration="6000" />
       <workItem from="1744487812121" duration="3845000" />
       <workItem from="1744494139857" duration="9000" />
+      <workItem from="1744619191077" duration="340000" />
     </task>
     <task id="LOCAL-00001" summary="fixez">
       <option name="closed" value="true" />
@@ -375,10 +389,36 @@
       <map>
         <entry key="c9e0f9df-f5c2-4e70-b99a-b37840b1912e" value="TOOL_WINDOW" />
         <entry key="b4a699ea-5261-4149-8a42-2fdf4f000362" value="TOOL_WINDOW" />
+        <entry key="a383607b-5a53-43c5-a93c-781b9bae7a1c" value="TOOL_WINDOW" />
       </map>
     </option>
     <option name="TAB_STATES">
       <map>
+        <entry key="a383607b-5a53-43c5-a93c-781b9bae7a1c">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="structure">
+                    <value>
+                      <list>
+                        <option value="dir:/Users/mikhailpanyushkin/code/xcom/laravel-editorjs-parser/resources/views/amp" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+            </State>
+          </value>
+        </entry>
         <entry key="b4a699ea-5261-4149-8a42-2fdf4f000362">
           <value>
             <State>
