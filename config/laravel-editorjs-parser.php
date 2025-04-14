@@ -150,6 +150,10 @@ return [
                             'type' => 'integer',
                             'required' => false,
                         ],
+                        'size' => [
+                            'type' => 'integer',
+                            'required' => false,
+                        ],
                         'url' => 'string',
                         'mime' => [
                             'type' => 'string',

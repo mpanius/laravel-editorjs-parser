@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1906de4a-43ec-4239-891a-f1bd4243a4fb" name="Changes" comment="Поправили рендеры для amp и так далее">
-      <change afterPath="$PROJECT_DIR$/resources/views/amp/embed.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/laravel-editorjs-parser.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/laravel-editorjs-parser.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -222,7 +222,8 @@
       <workItem from="1744487573536" duration="6000" />
       <workItem from="1744487812121" duration="3845000" />
       <workItem from="1744494139857" duration="9000" />
-      <workItem from="1744619191077" duration="1295000" />
+      <workItem from="1744619191077" duration="2229000" />
+      <workItem from="1744657189911" duration="28000" />
     </task>
     <task id="LOCAL-00001" summary="fixez">
       <option name="closed" value="true" />
@@ -376,7 +377,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744619777974</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Поправили рендеры для amp и так далее">
+      <option name="closed" value="true" />
+      <created>1744621364134</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1744621364134</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -392,6 +401,11 @@
     </option>
     <option name="TAB_STATES">
       <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
         <entry key="a383607b-5a53-43c5-a93c-781b9bae7a1c">
           <value>
             <State>
