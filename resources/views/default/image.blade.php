@@ -1,103 +1,122 @@
-<figure class="editor-js-image {{ $data['classes'] ?? ' '}}">
-    @php
-        $imageUrl = $data['file']['url'] ?? '';
-        $mediaId = $data['file']['media_id'] ?? null;
-        
-        // Если есть media_id, но нет URL, попробуем получить URL из медиабиблиотеки
-        if (!$imageUrl && $mediaId) {
-            // Пытаемся найти медиа по ID
-            $media = \Spatie\MediaLibrary\MediaCollections\Models\Media::find($mediaId);
-            if ($media) {
-                $imageUrl = $media->getUrl();
+{{-- /Users/mikhailpanyushkin/code/xcom/laravel-editorjs-parser/resources/views/default/image.blade.php --}}
+@php
+    // --- Извлечение данных и подготовка переменных ---
+    $fileData = $data['file'] ?? [];
+    $customProps = $fileData['custom_properties'] ?? [];
+    $imageUrl = $fileData['url'] ?? null;
+    $mediaId = $fileData['media_id'] ?? null;
+
+    // Попытка получить URL из MediaLibrary, если его нет, но есть media_id
+    if (!$imageUrl && $mediaId && class_exists(\Spatie\MediaLibrary\MediaCollections\Models\Media::class)) {
+        $media = \Spatie\MediaLibrary\MediaCollections\Models\Media::find($mediaId);
+        if ($media) {
+            $imageUrl = $media->getUrl();
+            // Попытаемся получить width/height/blurhash из custom_properties медиа, если их нет в $fileData
+            if (empty($fileData['width']) && $media->hasCustomProperty('width')) {
+                $fileData['width'] = $media->getCustomProperty('width');
+            }
+            if (empty($fileData['height']) && $media->hasCustomProperty('height')) {
+                $fileData['height'] = $media->getCustomProperty('height');
+            }
+            if (empty($customProps['blurhash']) && $media->hasCustomProperty('blurhash')) {
+                $customProps['blurhash'] = $media->getCustomProperty('blurhash');
             }
         }
-        
-        // Проверяем, что у нас есть URL изображения
-        if (empty($imageUrl)) {
-            $imageUrl = ''; // Обеспечиваем, что переменная будет определена даже если URL отсутствует
-        }
-        
-        // Получаем размеры изображения
-        $originalWidth = $data['file']['width'] ?? 0;
-        $originalHeight = $data['file']['height'] ?? 0;
-        
-        // Определяем, является ли изображение маленьким (меньше 400px по ширине)
-        $isSmallImage = $originalWidth > 0 && $originalWidth < 400;
-        
-        // Максимальная ширина контейнера публикации
-        $maxWidth = 920;
-        // Максимальная высота изображения на десктопе
-        $maxDesktopHeight = 700; 
+    }
 
-        // Определяем оптимальные размеры для разных устройств
-        // Если изображение меньше максимальной ширины, используем его оригинальный размер
-        $desktopWidth = $originalWidth > 0 && $originalWidth < $maxWidth ? $originalWidth : $maxWidth;
-        $tabletWidth = min(736, $desktopWidth);
-        $mobileWidth = min(480, $desktopWidth);
-        
-        // Вычисляем соотношение сторон для правильного определения высоты
-        $aspectRatio = $originalWidth > 0 && $originalHeight > 0 ? $originalWidth / $originalHeight : 0;
+    // Основные данные изображения
+    $width = $customProps['width'] ?? $fileData['width'] ?? null;
+    $height = $customProps['height'] ?? $fileData['height'] ?? null;
+    $blurhash = $customProps['blurhash'] ?? null;
+    $caption = $data['caption'] ?? null;
+    $altText = $data['alt'] ?? $caption ?? ''; // Alt из источника или caption
+    $sourceText = $data['alt'] ?? null; // Текст источника
+    $sourceLink = $data['link'] ?? null; // Ссылка на источник
 
-        // Рассчитываем ФИНАЛЬНЫЕ размеры десктопной картинки после preview/W x H
-        $finalW = $desktopWidth;
-        $finalH = $maxDesktopHeight;
-        if ($originalWidth > 0 && $originalHeight > 0 && $aspectRatio > 0) { 
-            $scaleW = $desktopWidth / $originalWidth;
-            $scaleH = $maxDesktopHeight / $originalHeight;
-            $scale = min($scaleW, $scaleH);
-            $finalW = $originalWidth * $scale;
-            $finalH = $originalHeight * $scale;
-        }
+    // CSS классы
+    $figureClasses = ['editor-js-image-plus', 'relative', 'my-6']; // 'my-6' для вертикального отступа
+    // Добавляем любые дополнительные классы из data['classes'], если они есть
+    if (!empty($data['classes'])) {
+         $figureClasses[] = $data['classes'];
+    }
 
-    @endphp
-    @if(!empty($imageUrl))
-    <a href="{{normalize($imageUrl)}}" class="glightbox"
-       @if($data['caption'] ?? null) data-title="{{$data['caption']}}" @endif>
-        <div class="image-container">
-            @if(!$isSmallImage)
-                <picture>
-                    {{-- Desktop: Limit by both max width and max height --}}
-                    <source media="(min-width: 1024px)" srcset="{{ img($imageUrl, $desktopWidth, $maxDesktopHeight) }}">
-                    <source media="(min-width: 640px)" srcset="{{ img($imageUrl, $tabletWidth) }}">
-                    <img 
-                        loading="lazy"
-                        decoding="async"
-                        src="{{ img($imageUrl, $mobileWidth) }}"
-                        {{-- Устанавливаем точные размеры самой большой (десктопной) версии для резервирования места --}}
-                        width="{{ round($finalW) }}"
-                        height="{{ round($finalH) }}"
-                        class="block max-w-full h-auto mx-auto"
-                        style="background-image: url('{{ img($imageUrl, 20) }}'); background-size: cover; background-position: center; background-repeat: no-repeat;"
-                        onload="this.style.backgroundImage='none'"
-                    >
-                </picture>
-            @else
-                {{-- Small image: display directly, centered --}}
-                <img
-                    loading="lazy"
-                    decoding="async"
-                    src="{{ img($imageUrl, $mobileWidth) }}"
-                    width="{{ $originalWidth }}"
-                    height="{{ $originalHeight }}"
-                    @if(!empty($data['caption']))
-                        alt="{{ $data['caption'] }}"
-                    @else
-                        alt=""
-                    @endif
-                    class="block max-w-full h-auto mx-auto"
-                >
+    // Размеры для srcset (предполагаем, что img() генерирует URL нужной ширины)
+    $srcsetWidths = [320, 640, 880, 1200, 1760, 2400];
+    $srcset = collect($srcsetWidths)
+        ->map(fn($w) => img($imageUrl, $w) . ' ' . $w . 'w') // Используем ваш img() хелпер
+        ->implode(', ');
+
+    // Атрибут sizes - Уточнено по замерам
+    $sizes = '(max-width: 639px) 100vw, (max-width: 719px) calc(100vw - 48px), (max-width: 1023px) 840px, (max-width: 1339px) 620px, 920px';
+
+    // Стиль для плейсхолдера
+    $placeholderStyle = '';
+    $aspectRatioStyle = '';
+    if ($width && $height) {
+        $aspectRatio = round(($height / $width) * 100, 4);
+        // Используем современный CSS aspect-ratio
+         $aspectRatioStyle = "aspect-ratio: {$width} / {$height};";
+         $placeholderStyle = generateBlurhashBackgroundStyle($blurhash, 32, round(32 * $height / $width));
+    } else {
+         // Fallback, если нет размеров - задаем стандартный aspect-ratio 16:9
+         $aspectRatioStyle = "aspect-ratio: 16 / 9;";
+         $placeholderStyle = generateBlurhashBackgroundStyle($blurhash, 32, 18); // 16:9 для 32px ширины
+    }
+
+@endphp
+
+{{-- Фигура рендерится всегда, чтобы показать плейсхолдер или само изображение --}}
+<figure class="{{ implode(' ', $figureClasses) }}">
+    <div class="relative"> {{-- Контейнер для позиционирования плейсхолдера и изображения --}}
+
+        {{-- 1. Плейсхолдер Blurhash (Всегда рендерим, если есть стиль) --}}
+        @if ($placeholderStyle)
+        <div
+            class="blurhash-placeholder absolute inset-0 z-10" {{-- Убран класс transition-opacity --}}
+            style="{{ $placeholderStyle }} {{ $aspectRatioStyle }}"
+            aria-hidden="true"
+        ></div>
+        @endif
+
+        {{-- 2. Изображение с <picture> (Только если есть URL) --}}
+        @if (!empty($imageUrl))
+        <picture
+            class="image-wrapper relative z-20 block @if ($placeholderStyle) opacity-0 transition-opacity duration-500 ease-in @endif" {{-- Эффект появления только если был плейсхолдер --}}
+            style="{{ $aspectRatioStyle }}" {{-- Применяем aspect-ratio --}}
+        >
+            {{-- Источники для разных размеров экрана --}}
+            <source srcset="{{ $srcset }}" sizes="{{ $sizes }}">
+
+            {{-- Основное изображение (fallback + для JS) --}}
+            <img
+                src="{{ img($imageUrl, $srcsetWidths[0]) }}" {{-- Самый маленький размер как src --}}
+                alt="{{ $altText }}"
+                width="{{ $width ?? '' }}" {{-- Оригинальные размеры для семантики, если есть --}}
+                height="{{ $height ?? '' }}"
+                loading="lazy"
+                decoding="async"
+                class="main-image absolute inset-0 w-full h-full object-cover" {{-- Растягиваем внутри контейнера с aspect-ratio --}}
+            >
+        </picture>
+        @endif {{-- Конец if (!empty($imageUrl)) для <picture> --}}
+    </div>
+
+    {{-- 3. Метаданные (Caption, Источник) (Всегда рендерим, если есть данные) --}}
+    @if ($caption || $sourceText)
+        <figcaption class="image-caption block mt-2 px-4 text-sm text-center text-gray-600 dark:text-gray-400">
+            @if ($caption)
+                <span>{{ $caption }}</span>
             @endif
-        </div>
-    </a>
-    @endif
-    @if (($data['caption'] ?? null) || ($data['alt'] ?? null) || ($data['link'] ?? null) )
-        <figcaption class="mx-auto text-center ">
-            <span>{{ $data['caption'] ?? ''}}</span>
-            @if($data['link'] ?? null)
-                <div class="text-xs @if(!empty($data['caption'] ?? null))mt-2 @endif"><a target="_blank"
-                                                                                         class="no-underline text-gray-500 hover:text-blue-500"
-                                                                                         href="{{$data['link']}}">
-                         {{ $data['alt'] ? __('Изображение').' '.$data['alt']: __('Источник изображения') }}</a></div>
+            @if ($sourceText)
+                <span class="block text-xs mt-1">
+                    @if ($sourceLink)
+                        <a href="{{ $sourceLink }}" target="_blank" rel="noopener nofollow" class="hover:text-primary-500 transition-colors duration-200">
+                            {{ __('Источник') }}: {{ $sourceText }}
+                        </a>
+                    @else
+                        {{ __('Источник') }}: {{ $sourceText }}
+                    @endif
+                </span>
             @endif
         </figcaption>
     @endif

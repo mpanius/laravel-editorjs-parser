@@ -11,6 +11,9 @@
                 $imageUrl = $media->getUrl();
             }
         }
+
+        // Атрибут sizes для AMP - **ВАЖНО:** Адаптируйте под вашу сетку!
+        $sizes = '(max-width: 767px) 100vw, 720px'; // Упрощено для AMP: макс 720px, ниже - 100vw
     @endphp
 
     @if(!empty($imageUrl))
@@ -18,6 +21,7 @@
             <amp-img layout="responsive"
                      @if(!empty($data['file']['width']) && $data['file']['width'] != 0)width="{{$data['file']['width']}}"
                      height="{{$data['file']['height']}}" @endif
+                     sizes="{{$sizes}}"
                      src="{{ normalize($imageUrl) }}" @if(!empty($data['caption']))alt="{{ $data['caption'] }}"@endif>
             </amp-img>
 
