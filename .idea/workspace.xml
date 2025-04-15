@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1906de4a-43ec-4239-891a-f1bd4243a4fb" name="Changes" comment="поправил рендер для img">
+    <list default="true" id="1906de4a-43ec-4239-891a-f1bd4243a4fb" name="Changes" comment="fix img render">
+      <change afterPath="$PROJECT_DIR$/resources/views/default/image.bk2p.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/default/image.bkp.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/amp/image.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/amp/image.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/default/image.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/default/image.blade.php" afterDir="false" />
@@ -162,7 +164,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "com.codeium.enabled": "true",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "/Users/mikhailpanyushkin/code/xcom/laravel-editorjs-parser",
+    "last_opened_file_path": "/Users/mikhailpanyushkin/code/xcom/laravel-editorjs-parser/resources/views/default",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -173,9 +175,9 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/default" />
       <recent name="$PROJECT_DIR$/resources/views/zen" />
       <recent name="$PROJECT_DIR$/config" />
-      <recent name="$PROJECT_DIR$/resources/views/default" />
       <recent name="$PROJECT_DIR$/resources/views/blocks" />
       <recent name="$PROJECT_DIR$/resources/views" />
     </key>
@@ -226,7 +228,7 @@
       <workItem from="1744494139857" duration="9000" />
       <workItem from="1744619191077" duration="2229000" />
       <workItem from="1744657189911" duration="674000" />
-      <workItem from="1744737652144" duration="273000" />
+      <workItem from="1744737652144" duration="6007000" />
     </task>
     <task id="LOCAL-00001" summary="fixez">
       <option name="closed" value="true" />
@@ -396,7 +398,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744657258197</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="fix img render">
+      <option name="closed" value="true" />
+      <created>1744737972378</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1744737972378</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -504,6 +514,7 @@
     <MESSAGE value="исправили картинки чтобы их не увеличивали" />
     <MESSAGE value="Поправили рендеры для amp и так далее" />
     <MESSAGE value="поправил рендер для img" />
-    <option name="LAST_COMMIT_MESSAGE" value="поправил рендер для img" />
+    <MESSAGE value="fix img render" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix img render" />
   </component>
 </project>
