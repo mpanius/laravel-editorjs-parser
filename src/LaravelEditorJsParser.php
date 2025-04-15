@@ -3,7 +3,6 @@
 namespace Ixbtcom\LaravelEditorJsParser;
 
 use EditorJS\EditorJS;
-use EditorJS\EditorJSException;
 use Exception;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Str;
