@@ -4,6 +4,7 @@ namespace Ixbtcom\LaravelEditorJsParser;
 
 use EditorJS\EditorJS;
 use Exception;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Str;
 
@@ -16,8 +17,10 @@ class LaravelEditorJsParser
      * @return string
      * @throws Exception
      */
-    public function render(string $data,$template_dir = 'default') : string
+    public function render(string $data,$template_dir = 'default', ?array $media = null) : string
     {
+
+
 
 
             $configJson = json_encode(config('laravel-editorjs-parser.config') ?: []);

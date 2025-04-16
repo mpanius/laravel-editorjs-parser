@@ -1,24 +1,25 @@
 <div class="editor-js-block my-6">
     @php
-        $imageUrl = $data['file']['url'] ?? '';
-        $mediaId = $data['file']['media_id'] ?? null;
-
-        // Если есть media_id, но нет URL, попробуем получить URL из медиабиблиотеки
-        if (!$imageUrl && $mediaId) {
-            // Пытаемся найти медиа по ID
-            $media = \Spatie\MediaLibrary\MediaCollections\Models\Media::find($mediaId);
-            if ($media) {
-                $imageUrl = $media->getUrl();
-            }
-        }
+        $mediaId = $data['file']['media_id'] ?? $data['media_id'] ?? null;
+        $originalHeight = null;
+        $originalWidth = null;
+     if ($mediaId && ($media = \Illuminate\Support\Facades\Cache::remember('media_'.$mediaId, 1800, fn() =>  \Spatie\MediaLibrary\MediaCollections\Models\Media::find($mediaId)))) {
+           $imageUrl = $media->getUrl() ?? null;
+           $originalWidth = $media->getCustomProperty('width') ?? 0;
+           $originalHeight = $media->getCustomProperty('height') ?? 0;
+       } else {
+            $imageUrl = $data['file']['url'] ? normalize($data['file']['url']) : null;
+           $originalWidth = $data['file']['width'] ?? 0;
+           $originalHeight = $data['file']['height'] ?? 0;
+     }
     @endphp
 
     @if(!empty($imageUrl))
         <figure class="editor-js-image{{ $data['classes'] ?? ' '}}">
             <amp-img layout="responsive"
-                     @if(!empty($data['file']['width']) && $data['file']['width'] != 0)width="{{$data['file']['width']}}"
-                     height="{{$data['file']['height']}}" @endif
-                     src="{{ normalize($imageUrl) }}" @if(!empty($data['caption']))alt="{{ $data['caption'] }}"@endif>
+                     @if($originalWidth > 0)width="{{$originalWidth}}" @endif
+                     @if($originalHeight > 0)height="{{$originalHeight}}" @endif
+                     src="{{ $imageUrl }}" @if(!empty($data['caption']))alt="{{ $data['caption'] }}"@endif>
             </amp-img>
 
             @if (($data['caption'] ?? null) || ($data['source'] ?? null))

@@ -1,65 +1,70 @@
 <figure class="editor-js-image {{ $data['classes'] ?? ' '}}">
     @php
-        $imageUrl = $data['file']['url'] ?? null;
         $mediaId = $data['file']['media_id'] ?? $data['media_id'] ?? null;
-        $blurhash = $data['file']['bluryhash'] ?? null;
-        $originalWidth = $data['file']['width'] ?? null;
-        $originalHeight = $data['file']['height'] ?? null;
-        // Если есть media_id, но нет URL, попробуем получить URL из медиабиблиотеки
-
-        if(!($imageUrl && $mediaId && $blurhash && $originalHeight && $originalWidth))
-            if ($media = \Spatie\MediaLibrary\MediaCollections\Models\Media::find($mediaId)) {
-                $imageUrl = $imageUrl ?? $media->getUrl();
-                $blurhash = $blurhash ?? $media->getCustomProperty('blurhash',null);
-                $originalWidth = $originalWidth ?? $media->getCustomProperty('width') ?? 0;
-                $originalHeight = $originalHeight ?? $media->getCustomProperty('height') ?? 0;
-            }
+        $blurhash = null;
+        $originalHeight = null;
+        $originalWidth = null;
 
 
 
+             if ($mediaId && ($media = \Illuminate\Support\Facades\Cache::remember('media_'.$mediaId, 1800, fn() =>  \Spatie\MediaLibrary\MediaCollections\Models\Media::find($mediaId)))) {
+                   $imageUrl = $media->getUrl() ?? null;
+                   $blurhash =  $media->getCustomProperty('blurhash') ?? null;
+                   $originalWidth = $media->getCustomProperty('width') ?? 0;
+                   $originalHeight = $media->getCustomProperty('height') ?? 0;
+               } else {
 
-    // Стиль для соотношения сторон и плейсхолдера
-    if ($blurhash && $originalWidth && $originalHeight) {
 
-        // Вычисляем соотношение сторон на основе ОРИГИНАЛЬНЫХ размеров
-        $aspectRatioStyle = "aspect-ratio: {$originalWidth} / {$originalHeight};";
-        // Генерируем стиль фона blurhash с правильным соотношением сторон
-        $placeholderStyle = blurhash_style($blurhash, 32, round(32 * $originalHeight / $originalWidth));
-        } else {
-        $placeholderStyle = ''; $aspectRatioStyle = '';
+            $imageUrl = $data['file']['url'] ? normalize($data['file']['url']) : null;
 
-    }
-        // Определяем, является ли изображение маленьким (меньше 400px по ширине)
-        $isSmallImage = $originalWidth > 0 && $originalWidth < 400;
 
-        // Максимальная ширина контейнера публикации
-        $maxWidth = 920;
-        // Максимальная высота изображения на десктопе
-        $maxDesktopHeight = 700;
+           $blurhash = $data['file']['bluryhash'] ?? null;
+           $originalWidth = $data['file']['width'] ?? null;
+           $originalHeight = $data['file']['height'] ?? null;
 
-        // Определяем оптимальные размеры для разных устройств
-        // Если изображение меньше максимальной ширины, используем его оригинальный размер
-        $desktopWidth = $originalWidth > 0 && $originalWidth < $maxWidth ? $originalWidth : $maxWidth;
-        $tabletWidth = min(736, $desktopWidth);
-        $mobileWidth = min(480, $desktopWidth);
+}
+       // Стиль для соотношения сторон и плейсхолдера
+       if ($blurhash && $originalWidth && $originalHeight) {
 
-        // Вычисляем соотношение сторон для правильного определения высоты
-        $aspectRatio = $originalWidth > 0 && $originalHeight > 0 ? $originalWidth / $originalHeight : 0;
+           // Вычисляем соотношение сторон на основе ОРИГИНАЛЬНЫХ размеров
+           $aspectRatioStyle = "aspect-ratio: {$originalWidth} / {$originalHeight};";
+           // Генерируем стиль фона blurhash с правильным соотношением сторон
+           $placeholderStyle = blurhash_style($blurhash, 32, round(32 * $originalHeight / $originalWidth));
+           } else {
+           $placeholderStyle = ''; $aspectRatioStyle = '';
 
-        // Рассчитываем ФИНАЛЬНЫЕ размеры десктопной картинки после preview/W x H
-        $finalW = $desktopWidth;
-        $finalH = $maxDesktopHeight;
-        if ($originalWidth > 0 && $originalHeight > 0 && $aspectRatio > 0) {
-            $scaleW = $desktopWidth / $originalWidth;
-            $scaleH = $maxDesktopHeight / $originalHeight;
-            $scale = min($scaleW, $scaleH);
-            $finalW = $originalWidth * $scale;
-            $finalH = $originalHeight * $scale;
-        }
+       }
+           // Определяем, является ли изображение маленьким (меньше 400px по ширине)
+           $isSmallImage = $originalWidth > 0 && $originalWidth < 400;
+
+           // Максимальная ширина контейнера публикации
+           $maxWidth = 920;
+           // Максимальная высота изображения на десктопе
+           $maxDesktopHeight = 700;
+
+           // Определяем оптимальные размеры для разных устройств
+           // Если изображение меньше максимальной ширины, используем его оригинальный размер
+           $desktopWidth = $originalWidth > 0 && $originalWidth < $maxWidth ? $originalWidth : $maxWidth;
+           $tabletWidth = min(736, $desktopWidth);
+           $mobileWidth = min(480, $desktopWidth);
+
+           // Вычисляем соотношение сторон для правильного определения высоты
+           $aspectRatio = $originalWidth > 0 && $originalHeight > 0 ? $originalWidth / $originalHeight : 0;
+
+           // Рассчитываем ФИНАЛЬНЫЕ размеры десктопной картинки после preview/W x H
+           $finalW = $desktopWidth;
+           $finalH = $maxDesktopHeight;
+           if ($originalWidth > 0 && $originalHeight > 0 && $aspectRatio > 0) {
+               $scaleW = $desktopWidth / $originalWidth;
+               $scaleH = $maxDesktopHeight / $originalHeight;
+               $scale = min($scaleW, $scaleH);
+               $finalW = $originalWidth * $scale;
+               $finalH = $originalHeight * $scale;
+           }
 
     @endphp
     @if(!empty($imageUrl))
-        <a href="{{normalize($imageUrl)}}" class="glightbox"
+        <a href="{{$imageUrl}}" class="glightbox"
            @if($data['caption'] ?? null) data-title="{{$data['caption']}}" @endif>
             <div class="image-container">
                 @if(!$isSmallImage)
