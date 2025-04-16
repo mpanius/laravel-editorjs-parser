@@ -161,6 +161,10 @@ return [
                         ],
                     ],
                 ],
+                'media_id' => [
+                    'type' => 'integer',
+                    'required' => false,
+                ],
                 'caption' => [
                     'type' => 'string',
                     'allowedTags' => 'i,b,a[href],code[class],mark[class]',
