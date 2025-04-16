@@ -1,7 +1,7 @@
 <figure class="editor-js-image {{ $data['classes'] ?? ' '}}">
     @php
         $imageUrl = $data['file']['url'] ?? null;
-        $mediaId = $data['file']['media_id'] ?? null;
+        $mediaId = $data['file']['media_id'] ?? $data['media_id'] ?? null;
         $blurhash = $data['file']['bluryhash'] ?? null;
         $originalWidth = $data['file']['width'] ?? null;
         $originalHeight = $data['file']['height'] ?? null;
