@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1906de4a-43ec-4239-891a-f1bd4243a4fb" name="Changes" comment="fix media_id">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/laravel-editorjs-parser.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/laravel-editorjs-parser.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -228,7 +229,9 @@
       <workItem from="1744744618162" duration="21000" />
       <workItem from="1744750168130" duration="2966000" />
       <workItem from="1744801840977" duration="187000" />
-      <workItem from="1744831132800" duration="276000" />
+      <workItem from="1744831132800" duration="526000" />
+      <workItem from="1744834083564" duration="48000" />
+      <workItem from="1744843725483" duration="48000" />
     </task>
     <task id="LOCAL-00001" summary="fixez">
       <option name="closed" value="true" />
@@ -446,7 +449,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744797613800</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="fix media_id">
+      <option name="closed" value="true" />
+      <created>1744831574557</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1744831574557</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

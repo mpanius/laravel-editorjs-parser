@@ -266,16 +266,7 @@ return [
                 'width' => 'integer',
                 'height' => 'integer',
                 'caption' => 'string',
-            ],
-            'iframely' => [
-                'html' => [
-                    'type' => 'string',
-                    'allowedTags' => '*' // Allow all tags since we disabled frontend sanitization
-                ],
-                'url' => [
-                    'type' => 'string',
-                    'required' => false, // Mark url as not required for the parser
-                ],
+                'embedhtml' => ['type' => 'string','required' => false],
             ],
         ],
     ],
