@@ -265,8 +265,15 @@ return [
                 'embed' => 'string',
                 'width' => 'integer',
                 'height' => 'integer',
-                'caption' => 'string',
-                'embedhtml' => ['type' => 'string','required' => false],
+                'caption' => 'string'
+            ],
+            'iframely' => [
+
+                'url' => 'string',
+                'provider' => 'string',
+
+                'html' => 'string',
+                'caption' => 'string'
             ],
         ],
     ],
