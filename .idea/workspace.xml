@@ -6,11 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="1906de4a-43ec-4239-891a-f1bd4243a4fb" name="Changes" comment="fix media_id">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/amp/image.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/amp/image.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/default/image.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/default/image.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/turbo/image.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/turbo/image.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/zen/image.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/zen/image.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LaravelEditorJsParser.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/LaravelEditorJsParser.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -231,7 +226,9 @@
       <workItem from="1744657189911" duration="674000" />
       <workItem from="1744737652144" duration="6095000" />
       <workItem from="1744744618162" duration="21000" />
-      <workItem from="1744750168130" duration="2790000" />
+      <workItem from="1744750168130" duration="2966000" />
+      <workItem from="1744801840977" duration="187000" />
+      <workItem from="1744831132800" duration="276000" />
     </task>
     <task id="LOCAL-00001" summary="fixez">
       <option name="closed" value="true" />
@@ -441,7 +438,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744795582100</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="fix media_id">
+      <option name="closed" value="true" />
+      <created>1744797613800</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1744797613800</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
