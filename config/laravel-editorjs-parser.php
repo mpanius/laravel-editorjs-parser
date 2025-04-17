@@ -272,7 +272,10 @@ return [
                 'url' => 'string',
                 'provider' => 'string',
 
-                'html' => 'string',
+                'html' => [
+                    'type' => 'string',
+                    'allowedTags' => '*',
+                ],
                 'caption' => 'string'
             ],
         ],
