@@ -1,68 +1,55 @@
-<figure class="editor-js-image {{ $data['classes'] ?? ' '}}">
-    @php
-        $mediaId = $data['file']['media_id'] ?? $data['media_id'] ?? null;
-        $blurhash = null;
-        $originalHeight = null;
-        $originalWidth = null;
+@php
+    $mediaId = $data['file']['media_id'] ?? $data['media_id'] ?? null;
+    $media = media($mediaId);
 
+    if(empty($media)) return '';
 
+    $imageUrl = $media->getFullUrl() ?? null;
+    $blurhash =  $media->blurhash ?? $media->getCustomProperty('blurhash') ?? null;
+    $originalWidth = $media->width ?? $media->getCustomProperty('width') ?? 0;
+    $originalHeight = $media->height ?? $media->getCustomProperty('height') ?? 0;
 
-             if ($mediaId && ($media = \Illuminate\Support\Facades\Cache::remember('media_'.$mediaId, 1800, fn() =>  \Spatie\MediaLibrary\MediaCollections\Models\Media::find($mediaId)))) {
-                   $imageUrl = $media->getUrl() ?? null;
-                   $blurhash =  $media->getCustomProperty('blurhash') ?? null;
-                   $originalWidth = $media->getCustomProperty('width') ?? 0;
-                   $originalHeight = $media->getCustomProperty('height') ?? 0;
-               } else {
+   // Стиль для соотношения сторон и плейсхолдера
+   if ($blurhash && ($originalWidth > 0) && ($originalHeight > 0)) {
 
+       // Вычисляем соотношение сторон на основе ОРИГИНАЛЬНЫХ размеров
+       $aspectRatioStyle = "aspect-ratio: {$originalWidth} / {$originalHeight};";
+       // Генерируем стиль фона blurhash с правильным соотношением сторон
+       $placeholderStyle = blurhash_style($blurhash, 32, round(32 * $originalHeight / $originalWidth));
+       } else {
+       $placeholderStyle = ''; $aspectRatioStyle = '';
 
-            $imageUrl = $data['file']['url'] ? normalize($data['file']['url']) : null;
+   }
+       // Определяем, является ли изображение маленьким (меньше 400px по ширине)
+       $isSmallImage = $originalWidth > 0 && $originalWidth < 400;
 
+       // Максимальная ширина контейнера публикации
+       $maxWidth = 920;
+       // Максимальная высота изображения на десктопе
+       $maxDesktopHeight = 700;
 
-           $blurhash = $data['file']['blurhash'] ?? null;
-           $originalWidth = $data['file']['width'] ?? null;
-           $originalHeight = $data['file']['height'] ?? null;
+       // Определяем оптимальные размеры для разных устройств
+       // Если изображение меньше максимальной ширины, используем его оригинальный размер
+       $desktopWidth = $originalWidth > 0 && $originalWidth < $maxWidth ? $originalWidth : $maxWidth;
+       $tabletWidth = min(736, $desktopWidth);
+       $mobileWidth = min(480, $desktopWidth);
 
-}
-       // Стиль для соотношения сторон и плейсхолдера
-       if ($blurhash && $originalWidth && $originalHeight) {
+       // Вычисляем соотношение сторон для правильного определения высоты
+       $aspectRatio = $originalWidth > 0 && $originalHeight > 0 ? $originalWidth / $originalHeight : 0;
 
-           // Вычисляем соотношение сторон на основе ОРИГИНАЛЬНЫХ размеров
-           $aspectRatioStyle = "aspect-ratio: {$originalWidth} / {$originalHeight};";
-           // Генерируем стиль фона blurhash с правильным соотношением сторон
-           $placeholderStyle = blurhash_style($blurhash, 32, round(32 * $originalHeight / $originalWidth));
-           } else {
-           $placeholderStyle = ''; $aspectRatioStyle = '';
-
+       // Рассчитываем ФИНАЛЬНЫЕ размеры десктопной картинки после preview/W x H
+       $finalW = $desktopWidth;
+       $finalH = $maxDesktopHeight;
+       if ($originalWidth > 0 && $originalHeight > 0 && $aspectRatio > 0) {
+           $scaleW = $desktopWidth / $originalWidth;
+           $scaleH = $maxDesktopHeight / $originalHeight;
+           $scale = min($scaleW, $scaleH);
+           $finalW = $originalWidth * $scale;
+           $finalH = $originalHeight * $scale;
        }
-           // Определяем, является ли изображение маленьким (меньше 400px по ширине)
-           $isSmallImage = $originalWidth > 0 && $originalWidth < 400;
 
-           // Максимальная ширина контейнера публикации
-           $maxWidth = 920;
-           // Максимальная высота изображения на десктопе
-           $maxDesktopHeight = 700;
-
-           // Определяем оптимальные размеры для разных устройств
-           // Если изображение меньше максимальной ширины, используем его оригинальный размер
-           $desktopWidth = $originalWidth > 0 && $originalWidth < $maxWidth ? $originalWidth : $maxWidth;
-           $tabletWidth = min(736, $desktopWidth);
-           $mobileWidth = min(480, $desktopWidth);
-
-           // Вычисляем соотношение сторон для правильного определения высоты
-           $aspectRatio = $originalWidth > 0 && $originalHeight > 0 ? $originalWidth / $originalHeight : 0;
-
-           // Рассчитываем ФИНАЛЬНЫЕ размеры десктопной картинки после preview/W x H
-           $finalW = $desktopWidth;
-           $finalH = $maxDesktopHeight;
-           if ($originalWidth > 0 && $originalHeight > 0 && $aspectRatio > 0) {
-               $scaleW = $desktopWidth / $originalWidth;
-               $scaleH = $maxDesktopHeight / $originalHeight;
-               $scale = min($scaleW, $scaleH);
-               $finalW = $originalWidth * $scale;
-               $finalH = $originalHeight * $scale;
-           }
-
-    @endphp
+@endphp
+<figure class="editor-js-image {{ $data['classes'] ?? ' '}}">
     @if(!empty($imageUrl))
         <a href="{{$imageUrl}}" class="glightbox"
            @if($data['caption'] ?? null) data-title="{{$data['caption']}}" @endif>
@@ -82,8 +69,8 @@
                                 height="{{ round($finalH) }}"
                                 class="block max-w-full h-auto mx-auto"
                                 alt="{{ $data['caption'] ?? '' }}"
-                                @style(["$placeholderStyle $aspectRatioStyle transition-property: opacity; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 500ms;" => !empty($placeholderStyle) && !empty($aspectRatioStyle)])
-                                onload="this.style.backgroundImage='none'"
+                                @style(["$placeholderStyle; $aspectRatioStyle transition-property: opacity; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 500ms;" => !empty($placeholderStyle) && !empty($aspectRatioStyle)])
+
                         >
                     </picture>
                 @else
