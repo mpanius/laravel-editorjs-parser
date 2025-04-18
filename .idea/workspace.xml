@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1906de4a-43ec-4239-891a-f1bd4243a4fb" name="Changes" comment="fix media_id">
+    <list default="true" id="1906de4a-43ec-4239-891a-f1bd4243a4fb" name="Changes" comment="images">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/default/image.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/default/image.blade.php" afterDir="false" />
     </list>
@@ -238,7 +238,8 @@
       <workItem from="1744993774112" duration="842000" />
       <workItem from="1744994968083" duration="123000" />
       <workItem from="1744995169813" duration="2912000" />
-      <workItem from="1745005744399" duration="557000" />
+      <workItem from="1745005744399" duration="595000" />
+      <workItem from="1745006453764" duration="1396000" />
     </task>
     <task id="LOCAL-00001" summary="fixez">
       <option name="closed" value="true" />
@@ -504,7 +505,15 @@
       <option name="project" value="LOCAL" />
       <updated>1744994568418</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="images">
+      <option name="closed" value="true" />
+      <created>1745006335009</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1745006335009</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -615,7 +624,8 @@
     <MESSAGE value="поправил рендер для img" />
     <MESSAGE value="fix img render" />
     <MESSAGE value="fix media_id" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix media_id" />
+    <MESSAGE value="images" />
+    <option name="LAST_COMMIT_MESSAGE" value="images" />
     <option name="NON_MODAL_COMMIT_POSTPONE_SLOW_CHECKS" value="false" />
   </component>
 </project>
