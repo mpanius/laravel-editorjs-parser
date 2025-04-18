@@ -154,11 +154,18 @@ return [
                             'type' => 'integer',
                             'required' => false,
                         ],
-                        'url' => 'string',
+                        'url' => [
+                            'type' => 'string',
+                            'required' => false,
+                        ],
                         'mime' => [
                             'type' => 'string',
                             'required' => false,
                         ],
+                        'blurhash' => [
+                            'type' => 'string',
+                            'required' => false,
+                        ]
                     ],
                 ],
                 'media_id' => [
@@ -168,6 +175,10 @@ return [
                 'caption' => [
                     'type' => 'string',
                     'allowedTags' => 'i,b,a[href],code[class],mark[class]',
+                ],
+                'blurhash' => [
+                    'type' => 'string',
+                    'required' => false,
                 ],
                 'alt' => [
                     'type' => 'string',
