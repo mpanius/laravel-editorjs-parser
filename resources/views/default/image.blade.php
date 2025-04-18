@@ -18,7 +18,7 @@
             $imageUrl = $data['file']['url'] ? normalize($data['file']['url']) : null;
 
 
-           $blurhash = $data['file']['bluryhash'] ?? null;
+           $blurhash = $data['file']['blurhash'] ?? null;
            $originalWidth = $data['file']['width'] ?? null;
            $originalHeight = $data['file']['height'] ?? null;
 
@@ -82,8 +82,7 @@
                                 height="{{ round($finalH) }}"
                                 class="block max-w-full h-auto mx-auto"
                                 alt="{{ $data['caption'] ?? '' }}"
-                                @style(["$placeholderStyle $aspectRatioStyle transition-property: opacity; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 500ms;" => !empty($placeholderStyle) && !empty($aspectRatioStyle),
-                                "background-image: url('{{ img($imageUrl, 20) }}'); background-size: cover; background-position: center; background-repeat: no-repeat;" => empty($aspectRatioStyle) && empty($placeholderStyle)])
+                                @style(["$placeholderStyle $aspectRatioStyle transition-property: opacity; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 500ms;" => !empty($placeholderStyle) && !empty($aspectRatioStyle)])
                                 onload="this.style.backgroundImage='none'"
                         >
                     </picture>
