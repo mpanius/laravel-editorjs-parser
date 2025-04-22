@@ -158,6 +158,10 @@ return [
                             'type' => 'string',
                             'required' => false,
                         ],
+                        'mime_type' => [
+                            'type' => 'string',
+                            'required' => false,
+                        ],
                         'mime' => [
                             'type' => 'string',
                             'required' => false,
@@ -189,6 +193,10 @@ return [
                     'required' => false,
                 ],
                 'link' => [
+                    'type' => 'string',
+                    'required' => false,
+                ],
+                'mime_type' => [
                     'type' => 'string',
                     'required' => false,
                 ],
