@@ -20,17 +20,17 @@
 
        // Определяем оптимальные размеры для разных устройств
        // Если изображение меньше максимальной ширины, используем его оригинальный размер
-       $desktopWidth = $originalWidth > 0 && $originalWidth < $maxWidth ? $originalWidth : $maxWidth;
+       $desktopWidth = (($originalWidth > 0) && ($originalWidth < $maxWidth)) ? $originalWidth : $maxWidth;
        $tabletWidth = min(736, $desktopWidth);
        $mobileWidth = min(480, $desktopWidth);
 
        // Вычисляем соотношение сторон для правильного определения высоты
-       $aspectRatio = $originalWidth > 0 && $originalHeight > 0 ? $originalWidth / $originalHeight : 0;
+       $aspectRatio = (($originalWidth > 0) && ($originalHeight > 0)) ? $originalWidth / $originalHeight : 0;
 
        // Рассчитываем ФИНАЛЬНЫЕ размеры десктопной картинки после preview/W x H
        $finalW = $desktopWidth;
        $finalH = $maxDesktopHeight;
-       if ($originalWidth > 0 && $originalHeight > 0 && $aspectRatio > 0) {
+       if (($originalWidth > 0) && ($originalHeight > 0) && ($aspectRatio > 0)) {
            $scaleW = $desktopWidth / $originalWidth;
            $scaleH = $maxDesktopHeight / $originalHeight;
            $scale = min($scaleW, $scaleH);
@@ -51,16 +51,15 @@
                                 srcset="{{ img($imageUrl, $desktopWidth, $maxDesktopHeight) }}">
                         <source media="(min-width: 640px)" srcset="{{ img($imageUrl, $tabletWidth) }}">
                         <img
-                                loading="lazy"
-                                decoding="async"
+
                                 src="{{ img($imageUrl, $mobileWidth) }}"
                                 {{-- Устанавливаем точные размеры самой большой (десктопной) версии для резервирования места --}}
                                 width="{{ round($finalW) }}"
                                 height="{{ round($finalH) }}"
                                 class="block max-w-full h-auto mx-auto"
                                 alt="{{ $data['caption'] ?? '' }}"
-                                @style(["$placeholderStyle;  transition-property: opacity; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 500ms;" => !empty($placeholderStyle),
-"aspect-ratio: $originalWidth / $originalHeight;" => $originalWidth > 0 && $originalHeight > 0])
+                                @style(["$placeholderStyle;" => !empty($placeholderStyle),
+                                "aspect-ratio: $originalWidth / $originalHeight;" => $originalWidth > 0 && $originalHeight > 0])
 
                         >
                     </picture>
@@ -72,11 +71,7 @@
                             src="{{ img($imageUrl, $mobileWidth) }}"
                             width="{{ $originalWidth }}"
                             height="{{ $originalHeight }}"
-                            @if(!empty($data['caption']))
-                                alt="{{ $data['caption'] }}"
-                            @else
-                                alt=""
-                            @endif
+                            alt="{{ $data['caption'] ?? '' }}"
                             class="block max-w-full h-auto mx-auto"
                     >
                 @endif
