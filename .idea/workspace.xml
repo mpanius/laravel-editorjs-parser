@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1906de4a-43ec-4239-891a-f1bd4243a4fb" name="Changes" comment="fix mime">
+    <list default="true" id="1906de4a-43ec-4239-891a-f1bd4243a4fb" name="Changes" comment="fix blurhash">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/default/image.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/default/image.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -244,7 +243,9 @@
       <workItem from="1745008464166" duration="7000" />
       <workItem from="1745064789060" duration="875000" />
       <workItem from="1745315317034" duration="1399000" />
-      <workItem from="1745396429217" duration="818000" />
+      <workItem from="1745396429217" duration="8622000" />
+      <workItem from="1745486073586" duration="1955000" />
+      <workItem from="1745495449129" duration="909000" />
     </task>
     <task id="LOCAL-00001" summary="fixez">
       <option name="closed" value="true" />
@@ -542,7 +543,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745315384920</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="fix blurhash">
+      <option name="closed" value="true" />
+      <created>1745397266527</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1745397266527</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -656,7 +665,8 @@
     <MESSAGE value="images" />
     <MESSAGE value="Исправили размеры для blurhash" />
     <MESSAGE value="fix mime" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix mime" />
+    <MESSAGE value="fix blurhash" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix blurhash" />
     <option name="NON_MODAL_COMMIT_POSTPONE_SLOW_CHECKS" value="false" />
   </component>
 </project>
