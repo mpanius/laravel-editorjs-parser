@@ -38,7 +38,7 @@
             <iframe class="aspect-w-16 aspect-h-9 w-full h-64" frameborder="0" allowfullscreen=""
                     src="{!! $data['embed'] !!}"></iframe>
     @endswitch
-    <div class="prose prose-2xl my-2 mx-auto text-center">
+    <div class="prose prose-2xl my-2 mx-auto text-center text-base">
         {{ $data['caption'] ?? '' }}
     </div>
 

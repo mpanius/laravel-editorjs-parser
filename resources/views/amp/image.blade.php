@@ -20,7 +20,7 @@
             </amp-img>
 
             @if (($data['caption'] ?? null) || ($data['source'] ?? null))
-                <figcaption class="prose prose-2xl my-2 mx-auto text-center">
+                <figcaption class="prose prose-2xl my-2 mx-auto text-center text-base">
                     <span>{{ $data['caption'] ?? ''}}</span><span>{{ $data['source'] ?? '' }}</span>
                 </figcaption>
             @endif

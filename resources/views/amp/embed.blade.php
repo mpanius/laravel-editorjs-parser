@@ -31,7 +31,7 @@
                         allowfullscreen></amp-iframe>
     @endswitch
 
-    <div class="prose prose-2xl my-2 mx-auto text-center">
+    <div class="prose prose-2xl my-2 mx-auto text-center text-base">
         {{ $data['caption'] ?? '' }}
     </div>
 </div>
