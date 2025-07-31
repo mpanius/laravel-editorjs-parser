@@ -41,7 +41,11 @@
 @endphp
 <figure class="editor-js-image {{ $data['classes'] ?? ' '}}">
     @if(!empty($imageUrl))
-        <a href="{{$imageUrl}}" class="glightbox"
+        <a href="{{ (($originalWidth > 0) && ($originalWidth < 3000)) ? img($imageUrl,$originalWidth) : img($imageUrl,3000)}}"
+           class="glightbox"
+           data-original-width="{{$originalWidth}}"
+           data-original-height="{{$originalHeight}}"
+           data-download-link="{{$imageUrl}}"
            @if($data['caption'] ?? null) data-title="{{$data['caption']}}" @endif>
             <div class="image-container">
                 @if(!$isSmallImage)

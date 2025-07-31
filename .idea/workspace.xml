@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1906de4a-43ec-4239-891a-f1bd4243a4fb" name="Changes" comment="fix blurhash" />
+    <list default="true" id="1906de4a-43ec-4239-891a-f1bd4243a4fb" name="Changes" comment="fix blurhash">
+      <change beforePath="$PROJECT_DIR$/resources/views/default/image.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/default/image.blade.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -23,12 +25,12 @@
     &quot;assignee&quot;: &quot;mpanius&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;git@github.com:mpanius/laravel-editorjs-parser.git&quot;,
-    &quot;accountId&quot;: &quot;ffb4bd23-02ea-47c7-993e-031b325e883f&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/mpanius/laravel-editorjs-parser.git",
+    "accountId": "ffb4bd23-02ea-47c7-993e-031b325e883f"
   }
-}</component>
+}]]></component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="php">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/composer" />
@@ -155,6 +157,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
     "RunOnceActivity.git.unshallow": "true",
     "com.codeium.enabled": "true",
     "git-widget-placeholder": "master",
@@ -191,8 +194,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-6a121458b545-JavaScript-PS-251.25410.148" />
-        <option value="bundled-php-predefined-a98d8de5180a-c5828cf854d9-com.jetbrains.php.sharedIndexes-PS-251.25410.148" />
+        <option value="bundled-js-predefined-d6986cc7102b-09060db00ec0-JavaScript-PS-251.26927.60" />
+        <option value="bundled-php-predefined-a98d8de5180a-e5747d4f5a45-com.jetbrains.php.sharedIndexes-PS-251.26927.60" />
       </set>
     </attachedChunks>
   </component>
@@ -251,6 +254,7 @@
       <workItem from="1745486073586" duration="1955000" />
       <workItem from="1745495449129" duration="909000" />
       <workItem from="1748525966769" duration="7006000" />
+      <workItem from="1753958446721" duration="246000" />
     </task>
     <task id="LOCAL-00001" summary="fixez">
       <option name="closed" value="true" />
