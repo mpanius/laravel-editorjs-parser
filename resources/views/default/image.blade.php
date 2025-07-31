@@ -42,7 +42,7 @@
 <figure class="editor-js-image {{ $data['classes'] ?? ' '}}">
     @if(!empty($imageUrl))
         <a href="{{ (($originalWidth > 0) && ($originalWidth < 3000)) ? img($imageUrl,$originalWidth) : img($imageUrl,3000)}}"
-           class="glightbox"
+           class="glightbox _gallery resize-image"
            data-original-width="{{$originalWidth}}"
            data-original-height="{{$originalHeight}}"
            data-download-link="{{$imageUrl}}"
