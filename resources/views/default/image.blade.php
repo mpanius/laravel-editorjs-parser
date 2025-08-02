@@ -5,7 +5,7 @@
     if(empty($media)) return '';
 
     $imageUrl = $media->getFullUrl() ?? null;
-    $placeholderStyle  =  $media->blurhash_style ??null;
+
     $originalWidth = $media->width ?? $media->getCustomProperty('width') ?? 0;
     $originalHeight = $media->height ?? $media->getCustomProperty('height') ?? 0;
 
@@ -62,8 +62,7 @@
                                 height="{{ round($finalH) }}"
                                 class="block max-w-full h-auto mx-auto"
                                 alt="{{ $data['caption'] ?? '' }}"
-                                @style(["$placeholderStyle;" => !empty($placeholderStyle),
-                                "aspect-ratio: $originalWidth / $originalHeight;" => $originalWidth > 0 && $originalHeight > 0])
+                                @style([ "aspect-ratio: $originalWidth / $originalHeight;" => $originalWidth > 0 && $originalHeight > 0])
 
                         >
                     </picture>

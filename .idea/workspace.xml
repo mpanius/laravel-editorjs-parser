@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1906de4a-43ec-4239-891a-f1bd4243a4fb" name="Changes" comment="fix render img">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="1906de4a-43ec-4239-891a-f1bd4243a4fb" name="Changes" comment="add render array" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -256,6 +254,7 @@
       <workItem from="1748525966769" duration="7006000" />
       <workItem from="1753958446721" duration="419000" />
       <workItem from="1753968145323" duration="9000" />
+      <workItem from="1754136350125" duration="209000" />
     </task>
     <task id="LOCAL-00001" summary="fixez">
       <option name="closed" value="true" />
@@ -577,7 +576,15 @@
       <option name="project" value="LOCAL" />
       <updated>1753958839403</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="add render array">
+      <option name="closed" value="true" />
+      <created>1754136416960</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1754136416960</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -694,7 +701,8 @@
     <MESSAGE value="fix blurhash" />
     <MESSAGE value="fix render" />
     <MESSAGE value="fix render img" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix render img" />
+    <MESSAGE value="add render array" />
+    <option name="LAST_COMMIT_MESSAGE" value="add render array" />
     <option name="NON_MODAL_COMMIT_POSTPONE_SLOW_CHECKS" value="false" />
   </component>
 </project>
