@@ -259,7 +259,8 @@
       <workItem from="1753968145323" duration="9000" />
       <workItem from="1754136350125" duration="209000" />
       <workItem from="1754143732416" duration="137000" />
-      <workItem from="1754143959242" duration="470000" />
+      <workItem from="1754143959242" duration="506000" />
+      <workItem from="1754166746386" duration="202000" />
     </task>
     <task id="LOCAL-00001" summary="fixez">
       <option name="closed" value="true" />
@@ -597,7 +598,15 @@
       <option name="project" value="LOCAL" />
       <updated>1754143824170</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="add render array">
+      <option name="closed" value="true" />
+      <created>1754144436351</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1754144436351</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

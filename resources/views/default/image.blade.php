@@ -79,12 +79,12 @@
     @endif
     @if (($data['caption'] ?? null) || ($data['alt'] ?? null) || ($data['link'] ?? null) )
         <figcaption class="mx-auto text-center ">
-            <span>{{ $data['caption'] ?? ''}}</span>
+            <span>{{ ($data['caption'] ?? false) ? htmlspecialchars_decode($data['caption']) : ''}}</span>
             @if($data['link'] ?? null)
                 <div class="text-xs @if(!empty($data['caption'] ?? null))mt-2 @endif"><a target="_blank"
                                                                                          class="no-underline text-gray-500 hover:text-blue-500"
                                                                                          href="{{$data['link']}}">
-                        {{ $data['alt'] ? __('Изображение').' '.$data['alt']: __('Источник изображения') }}</a></div>
+                        {{ ($data['alt'] ?? false) ? __('Изображение').' '. htmlspecialchars_decode($data['alt']): __('Источник изображения') }}</a></div>
             @endif
         </figcaption>
     @endif
