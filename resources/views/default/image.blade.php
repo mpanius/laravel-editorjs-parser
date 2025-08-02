@@ -49,14 +49,10 @@
            @if($data['caption'] ?? null) data-title="{{$data['caption']}}" @endif>
             <div class="image-container">
                 @if(!$isSmallImage)
-                    <picture>
-                        {{-- Desktop: Limit by both max width and max height --}}
-                        <source media="(min-width: 1024px)"
-                                srcset="{{ img($imageUrl, $desktopWidth, $maxDesktopHeight) }}">
-                        <source media="(min-width: 640px)" srcset="{{ img($imageUrl, $tabletWidth) }}">
+
                         <img
 
-                                src="{{ img($imageUrl, $mobileWidth) }}"
+                                src="{{ img($imageUrl, $desktopWidth, $maxDesktopHeight) }}"
                                 {{-- Устанавливаем точные размеры самой большой (десктопной) версии для резервирования места --}}
                                 width="{{ round($finalW) }}"
                                 height="{{ round($finalH) }}"
@@ -65,13 +61,13 @@
                                 @style([ "aspect-ratio: $originalWidth / $originalHeight;" => $originalWidth > 0 && $originalHeight > 0])
 
                         >
-                    </picture>
+
                 @else
                     {{-- Small image: display directly, centered --}}
                     <img
                             loading="lazy"
                             decoding="async"
-                            src="{{ img($imageUrl, $mobileWidth) }}"
+                            src="{{ img($imageUrl, $desktopWidth, $maxDesktopHeighth) }}"
                             width="{{ $originalWidth }}"
                             height="{{ $originalHeight }}"
                             alt="{{ $data['caption'] ?? '' }}"

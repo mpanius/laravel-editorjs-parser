@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1906de4a-43ec-4239-891a-f1bd4243a4fb" name="Changes" comment="add render array" />
+    <list default="true" id="1906de4a-43ec-4239-891a-f1bd4243a4fb" name="Changes" comment="add render array">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/default/image.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/default/image.blade.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -255,6 +258,8 @@
       <workItem from="1753958446721" duration="419000" />
       <workItem from="1753968145323" duration="9000" />
       <workItem from="1754136350125" duration="209000" />
+      <workItem from="1754143732416" duration="137000" />
+      <workItem from="1754143959242" duration="470000" />
     </task>
     <task id="LOCAL-00001" summary="fixez">
       <option name="closed" value="true" />
@@ -584,7 +589,15 @@
       <option name="project" value="LOCAL" />
       <updated>1754136416960</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="add render array">
+      <option name="closed" value="true" />
+      <created>1754143824169</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1754143824170</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
