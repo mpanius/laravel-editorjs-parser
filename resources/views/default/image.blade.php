@@ -1,6 +1,7 @@
 @php
     $dimensions = $data['dimensions'] ?? null;
     if (!$dimensions) {
+        {{ dd($data) }}
         throw new \Exception('No dimensions calculated for image. Check calculateImageDimensions() method.');
     }
 @endphp
