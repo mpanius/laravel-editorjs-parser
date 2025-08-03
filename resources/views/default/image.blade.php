@@ -1,8 +1,7 @@
 @php
     $dimensions = $data['dimensions'] ?? null;
     if (!$dimensions) {
-        dd($data) ;
-        throw new \Exception('No dimensions calculated for image. Check calculateImageDimensions() method.');
+        return '';
     }
 @endphp
 <figure class="editor-js-image {{ $data['classes'] ?? ' '}}">

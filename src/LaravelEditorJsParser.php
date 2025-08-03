@@ -63,15 +63,13 @@ class LaravelEditorJsParser
                 'type' => $block['type'],
                 'data' => $block['data']
             ];
-            if($viewData['type'] === 'image') dd($viewData, $template_dir);
-            if((strtolower($block['type']) === 'image') && ($template_dir === 'default')){
-                dd($block['data']);
-                // Временная отладка
-                \Log::info('Image block data:', ['data' => $block['data'], 'template' => $template_dir]);
+
+            if((strtolower($block['type']) === 'image') && ($viewName === "laravel-editorjs-parser::default.image")){
+
+
                 
                 $dimensions = $this->calculateImageDimensions($block['data']);
-                
-                \Log::info('Calculated dimensions:', ['dimensions' => $dimensions]);
+
                 
                 if ($dimensions) {
                     $renderedImages[] = [
