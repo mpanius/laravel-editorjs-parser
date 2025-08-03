@@ -1,7 +1,58 @@
 @php
-    $dimensions = $dimensions ?? null;
-    if (!$dimensions) {
-        return '';
+    // Если есть вычисленные dimensions - используем их, иначе рассчитываем здесь для обратной совместимости
+    if (isset($data['dimensions'])) {
+        $dimensions = $data['dimensions'];
+        $media = null; // Уже обработано в PHP
+    } else {
+        // Fallback для обратной совместимости или когда вычисления не были сделаны
+        $mediaId = $data['file']['media_id'] ?? $data['media_id'] ?? null;
+        $media = media($mediaId);
+        
+        if(empty($media)) return '';
+        
+        $imageUrl = $media->getFullUrl() ?? null;
+        
+        $originalWidth = $media->width ?? $media->getCustomProperty('width') ?? 0;
+        $originalHeight = $media->height ?? $media->getCustomProperty('height') ?? 0;
+        
+        // Определяем, является ли изображение маленьким (меньше 400px по ширине)
+        $isSmallImage = $originalWidth > 0 && $originalWidth < 400;
+        
+        // Максимальная ширина контейнера публикации
+        $maxWidth = 920;
+        // Максимальная высота изображения на десктопе
+        $maxDesktopHeight = 700;
+        
+        // Определяем оптимальные размеры для разных устройств
+        $desktopWidth = (($originalWidth > 0) && ($originalWidth < $maxWidth)) ? $originalWidth : $maxWidth;
+        $tabletWidth = min(736, $desktopWidth);
+        $mobileWidth = min(480, $desktopWidth);
+        
+        // Вычисляем соотношение сторон
+        $aspectRatio = (($originalWidth > 0) && ($originalHeight > 0)) ? $originalWidth / $originalHeight : 0;
+        
+        // Рассчитываем ФИНАЛЬНЫЕ размеры десктопной картинки
+        $finalW = $desktopWidth;
+        $finalH = $maxDesktopHeight;
+        if (($originalWidth > 0) && ($originalHeight > 0) && ($aspectRatio > 0)) {
+            $scaleW = $desktopWidth / $originalWidth;
+            $scaleH = $maxDesktopHeight / $originalHeight;
+            $scale = min($scaleW, $scaleH);
+            $finalW = $originalWidth * $scale;
+            $finalH = $originalHeight * $scale;
+        }
+        
+        $dimensions = [
+            'originalWidth' => $originalWidth,
+            'originalHeight' => $originalHeight,
+            'finalWidth' => round($finalW),
+            'finalHeight' => round($finalH),
+            'desktopWidth' => $desktopWidth,
+            'maxDesktopHeight' => $maxDesktopHeight,
+            'isSmallImage' => $isSmallImage,
+            'imageUrl' => img($imageUrl, $desktopWidth, $maxDesktopHeight),
+            'fullImageUrl' => $imageUrl
+        ];
     }
 @endphp
 <figure class="editor-js-image {{ $data['classes'] ?? ' '}}">

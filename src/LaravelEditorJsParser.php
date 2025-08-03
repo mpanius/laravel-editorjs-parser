@@ -72,7 +72,8 @@ class LaravelEditorJsParser
                         'resultingHeight' => $dimensions['finalHeight'],
                         'finalUrl' => $dimensions['imageUrl']
                     ];
-                    $viewData['dimensions'] = $dimensions;
+                    // Добавляем dimensions прямо в data для использования в шаблоне
+                    $viewData['data']['dimensions'] = $dimensions;
                 }
             }
             

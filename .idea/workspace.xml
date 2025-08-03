@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1906de4a-43ec-4239-891a-f1bd4243a4fb" name="Changes" comment="add render array">
+    <list default="true" id="1906de4a-43ec-4239-891a-f1bd4243a4fb" name="Changes" comment="добавили data с финальными размерами">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/default/image.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/default/image.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -260,7 +259,8 @@
       <workItem from="1754136350125" duration="209000" />
       <workItem from="1754143732416" duration="137000" />
       <workItem from="1754143959242" duration="506000" />
-      <workItem from="1754166746386" duration="1185000" />
+      <workItem from="1754166746386" duration="1242000" />
+      <workItem from="1754181720017" duration="2024000" />
     </task>
     <task id="LOCAL-00001" summary="fixez">
       <option name="closed" value="true" />
@@ -614,7 +614,15 @@
       <option name="project" value="LOCAL" />
       <updated>1754166954565</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="добавили data с финальными размерами">
+      <option name="closed" value="true" />
+      <created>1754181386101</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1754181386101</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -732,7 +740,8 @@
     <MESSAGE value="fix render" />
     <MESSAGE value="fix render img" />
     <MESSAGE value="add render array" />
-    <option name="LAST_COMMIT_MESSAGE" value="add render array" />
+    <MESSAGE value="добавили data с финальными размерами" />
+    <option name="LAST_COMMIT_MESSAGE" value="добавили data с финальными размерами" />
     <option name="NON_MODAL_COMMIT_POSTPONE_SLOW_CHECKS" value="false" />
   </component>
 </project>
