@@ -63,7 +63,7 @@ class LaravelEditorJsParser
                 'type' => $block['type'],
                 'data' => $block['data']
             ];
-            
+            dd($viewData);
             if((strtolower($block['type']) === 'image') && ($template_dir === 'default')){
                 dd($block['data']);
                 // Временная отладка
