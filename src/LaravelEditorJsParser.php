@@ -65,9 +65,19 @@ class LaravelEditorJsParser
             ];
             
             if(($block['type'] === 'image') && ($template_dir === 'default')){
+                // Временная отладка
+                \Log::info('Image block data:', ['data' => $block['data'], 'template' => $template_dir]);
+                
                 $dimensions = $this->calculateImageDimensions($block['data']);
+                
+                \Log::info('Calculated dimensions:', ['dimensions' => $dimensions]);
+                
                 if ($dimensions) {
-                    $renderedImages[] =  $dimensions;
+                    $renderedImages[] = [
+                        'resultingWidth' => $dimensions['finalWidth'],
+                        'resultingHeight' => $dimensions['finalHeight'],
+                        'finalUrl' => $dimensions['imageUrl']
+                    ];
                     // Добавляем dimensions прямо в data для использования в шаблоне
                     $viewData['data']['dimensions'] = $dimensions;
                 }
