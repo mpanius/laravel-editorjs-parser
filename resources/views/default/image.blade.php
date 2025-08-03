@@ -51,7 +51,8 @@
                 @if(!$isSmallImage)
 
                         <img
-
+                                data-resizewidth="{{$desktopWidth}}"
+                                data-resizeheight="{{$maxDesktopHeight}}"
                                 src="{{ img($imageUrl, $desktopWidth, $maxDesktopHeight) }}"
                                 {{-- Устанавливаем точные размеры самой большой (десктопной) версии для резервирования места --}}
                                 width="{{ round($finalW) }}"
@@ -67,6 +68,8 @@
                     <img
                             loading="lazy"
                             decoding="async"
+                            data-resizewidth="{{$desktopWidth}}"
+                            data-resizeheight="{{$maxDesktopHeight}}"
                             src="{{ img($imageUrl, $desktopWidth, $maxDesktopHeighth) }}"
                             width="{{ $originalWidth }}"
                             height="{{ $originalHeight }}"
