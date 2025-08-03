@@ -15,8 +15,6 @@
             <div class="image-container">
                 @if(!$dimensions['isSmallImage'])
                         <img
-                                data-resizewidth="{{$dimensions['desktopWidth']}}"
-                                data-resizeheight="{{$dimensions['maxDesktopHeight']}}"
                                 src="{{ $dimensions['imageUrl'] }}"
                                 {{-- Устанавливаем точные размеры самой большой (десктопной) версии для резервирования места --}}
                                 width="{{ $dimensions['finalWidth'] }}"
@@ -28,10 +26,6 @@
                 @else
                     {{-- Small image: display directly, centered --}}
                     <img
-                            loading="lazy"
-                            decoding="async"
-                            data-resizewidth="{{$dimensions['desktopWidth']}}"
-                            data-resizeheight="{{$dimensions['maxDesktopHeight']}}"
                             src="{{ $dimensions['imageUrl'] }}"
                             width="{{ $dimensions['originalWidth'] }}"
                             height="{{ $dimensions['originalHeight'] }}"
