@@ -37,7 +37,7 @@ class LaravelEditorJsParser
 
         $renderedBlocks = [];
 
-        $images = [];
+        $renderedImages = [];
 
 
 
@@ -67,11 +67,7 @@ class LaravelEditorJsParser
             if(($block['type'] === 'image') && ($template_dir === 'default')){
                 $dimensions = $this->calculateImageDimensions($block['data']);
                 if ($dimensions) {
-                    $images[] = [
-                        'resultingWidth' => $dimensions['finalWidth'],
-                        'resultingHeight' => $dimensions['finalHeight'],
-                        'finalUrl' => $dimensions['imageUrl']
-                    ];
+                    $renderedImages[] =  $dimensions;
                     // Добавляем dimensions прямо в data для использования в шаблоне
                     $viewData['data']['dimensions'] = $dimensions;
                 }
@@ -80,7 +76,7 @@ class LaravelEditorJsParser
             $renderedBlocks[] = view($viewName, $viewData)->render();
         }
 
-        return ['blocks' => $renderedBlocks, 'images' => $images];
+        return ['blocks' => $renderedBlocks, 'images' => $renderedImages];
 
     }
     

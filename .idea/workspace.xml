@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1906de4a-43ec-4239-891a-f1bd4243a4fb" name="Changes" comment="добавили data с финальными размерами">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LaravelEditorJsParser.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/LaravelEditorJsParser.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -260,7 +261,7 @@
       <workItem from="1754143732416" duration="137000" />
       <workItem from="1754143959242" duration="506000" />
       <workItem from="1754166746386" duration="1242000" />
-      <workItem from="1754181720017" duration="2024000" />
+      <workItem from="1754181720017" duration="3010000" />
     </task>
     <task id="LOCAL-00001" summary="fixez">
       <option name="closed" value="true" />
