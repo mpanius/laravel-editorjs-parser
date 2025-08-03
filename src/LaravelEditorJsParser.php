@@ -72,11 +72,7 @@ class LaravelEditorJsParser
 
                 
                 if ($dimensions) {
-                    $renderedImages[] = [
-                        'resultingWidth' => $dimensions['finalWidth'],
-                        'resultingHeight' => $dimensions['finalHeight'],
-                        'finalUrl' => $dimensions['imageUrl']
-                    ];
+                    $renderedImages[] = $dimensions;
                     // Добавляем dimensions прямо в data для использования в шаблоне
                     $viewData['data']['dimensions'] = $dimensions;
                 }
