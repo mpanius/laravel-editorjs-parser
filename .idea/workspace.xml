@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1906de4a-43ec-4239-891a-f1bd4243a4fb" name="Changes" comment="fix parse">
-      <change beforePath="$PROJECT_DIR$/src/LaravelEditorJsParser.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/LaravelEditorJsParser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/zen/image.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/zen/image.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,7 +163,7 @@
     &quot;com.codeium.enabled&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/mikhailpanyushkin/code/xcom/laravel-editorjs-parser&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/mikhailpanyushkin/code/xcom/laravel-editorjs-parser/resources/views/default&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -261,23 +262,12 @@
       <workItem from="1754143959242" duration="506000" />
       <workItem from="1754166746386" duration="1242000" />
       <workItem from="1754181720017" duration="3076000" />
-      <workItem from="1754185004914" duration="2371000" />
-    </task>
-    <task id="LOCAL-00007" summary="fixez-editorjs render">
-      <option name="closed" value="true" />
-      <created>1742923575142</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1742923575142</updated>
-    </task>
-    <task id="LOCAL-00008" summary="fix parser">
-      <option name="closed" value="true" />
-      <created>1742923888338</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1742923888338</updated>
+      <workItem from="1754185004914" duration="2727000" />
+      <workItem from="1754189253476" duration="100000" />
+      <workItem from="1754210983881" duration="472000" />
+      <workItem from="1754578552477" duration="498000" />
+      <workItem from="1754580000587" duration="1000" />
+      <workItem from="1754580567478" duration="748000" />
     </task>
     <task id="LOCAL-00009" summary="fix parser">
       <option name="closed" value="true" />
@@ -655,7 +645,23 @@
       <option name="project" value="LOCAL" />
       <updated>1754187228526</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="fix parse">
+      <option name="closed" value="true" />
+      <created>1754187640677</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1754187640677</updated>
+    </task>
+    <task id="LOCAL-00057" summary="fix parse">
+      <option name="closed" value="true" />
+      <created>1754211375260</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1754211375260</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
