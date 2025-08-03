@@ -98,6 +98,7 @@ class LaravelEditorJsParser
      */
     private function calculateImageDimensions(array $data): ?array
     {
+        dd($data);
         $mediaId = $data['file']['media_id'] ?? $data['media_id'] ?? null;
         $media = media($mediaId);
         
