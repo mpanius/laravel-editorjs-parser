@@ -13,14 +13,14 @@
            $originalWidth = $data['file']['width'] ?? 0;
            $originalHeight = $data['file']['height'] ?? 0;
      }
-     $width = 700;
+     $width = 1000;
          $height = null;
      if($originalWidth > 2000) {
          $width = 2000;
          $height = round($originalHeight * 2000 / $originalWidth);
-     }elseif (($originalWidth > 0) && ($originalWidth < 700)){
-         $width = 700;
-         $height = round($originalHeight * 700 / $originalWidth);
+     }elseif (($originalWidth > 0) && ($originalWidth < 1000)){
+         $width = 1000;
+         $height = round($originalHeight * 1000 / $originalWidth);
      }
 
     @endphp
