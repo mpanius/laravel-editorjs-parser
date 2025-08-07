@@ -14,7 +14,7 @@
            $originalHeight = $data['file']['height'] ?? 0;
      }
      $width = 700;
-         $height = 700;
+         $height = null;
      if($originalWidth > 2000) {
          $width = 2000;
          $height = round($originalHeight * 2000 / $originalWidth);
@@ -27,7 +27,8 @@
 
     @if(!empty($imageUrl))
     <figure>
-        <img width="{{$width}}" height="{{$height}}" src="{{ img($imageUrl, $width, $height, false) }}" @if(!empty($data['caption']))alt="{{ $data['caption'] }}"@endif
+        <img width="{{$width}}" @if($height) height="{{$height}}" @endif
+             src="{{$height}}" src="{{ img($imageUrl, $width, $height) }}" @if(!empty($data['caption']))alt="{{ $data['caption'] }}"@endif
         />
 
 
