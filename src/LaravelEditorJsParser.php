@@ -19,7 +19,7 @@ class LaravelEditorJsParser
      * @return string
      * @throws Exception
      */
-    public function render(string $data,$template_dir = 'default', ?array $media = null) : string
+    public function render(string $data,$template_dir = 'default') : string
     {
 
 
@@ -61,7 +61,7 @@ class LaravelEditorJsParser
 
     }
 
-    public function renderBlocks(string $data,$template_dir = 'default', ?array $media = null) : array
+    public function renderBlocks(string $data,$template_dir = 'default', bool $withMedia = false) : array
     {
 
 
@@ -117,7 +117,7 @@ class LaravelEditorJsParser
             $renderedBlocks[] = view($viewName, $viewData)->render();
         }
 
-        return ['blocks' => $renderedBlocks, 'images' => $renderedImages];
+        return $withMedia ? ['blocks' => $renderedBlocks, 'images' => $renderedImages] : $renderedBlocks;
 
     }
     
