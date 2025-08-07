@@ -107,7 +107,7 @@ class LaravelEditorJsParser
                     $viewName = "laravel-editorjs-parser::default.image-light";
                 }
                 
-                $dimensions = $this->calculateImageDimensions($block['data']);
+                $dimensions = $this->calculateImageDimensions($block['data'], $viewName);
 
                 
                 if ($dimensions) {
@@ -128,9 +128,10 @@ class LaravelEditorJsParser
      * Calculate image dimensions for responsive display
      *
      * @param array $data Block data containing media information
+     * @param string $viewName View name to determine template-specific sizing
      * @return array|null Calculated dimensions or null if media not found
      */
-    private function calculateImageDimensions(array $data): ?array
+    private function calculateImageDimensions(array $data, string $viewName = ''): ?array
     {
         $mediaId = $data['file']['media_id'] ?? $data['media_id'] ?? null;
         $media = media($mediaId);
@@ -151,9 +152,11 @@ class LaravelEditorJsParser
         $isSmallImage = $originalWidth > 0 && $originalWidth < 400;
         
         // Максимальная ширина контейнера публикации
-        $maxWidth = 920;
+        // Для zen используем 1600, для остальных 920
+        $maxWidth = ($viewName === "laravel-editorjs-parser::zen.image") ? 1600 : 920;
         // Максимальная высота изображения на десктопе
-        $maxDesktopHeight = 700;
+        // Для zen используем 1200, для остальных 700
+        $maxDesktopHeight = ($viewName === "laravel-editorjs-parser::zen.image") ? 1200 : 700;
         
         // Определяем оптимальные размеры для разных устройств
         $desktopWidth = (($originalWidth > 0) && ($originalWidth < $maxWidth)) ? $originalWidth : $maxWidth;
