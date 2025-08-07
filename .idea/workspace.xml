@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1906de4a-43ec-4239-891a-f1bd4243a4fb" name="Changes" comment="fix parse">
+      <change afterPath="$PROJECT_DIR$/resources/views/default/image-light.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/zen/image.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/zen/image.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/default/image.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/default/image.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LaravelEditorJsParser.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/LaravelEditorJsParser.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,28 +157,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;com.codeium.enabled&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/mikhailpanyushkin/code/xcom/laravel-editorjs-parser/resources/views/default&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "com.codeium.enabled": "true",
+    "git-widget-placeholder": "master",
+    "junie.onboarding.icon.badge.shown": "true",
+    "last_opened_file_path": "/Users/mikhailpanyushkin/code/xcom/laravel-editorjs-parser/resources/views/default",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
-      &quot;DockerIgnore&quot;
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "DockerIgnore"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/resources/views/default" />
@@ -264,10 +266,15 @@
       <workItem from="1754181720017" duration="3076000" />
       <workItem from="1754185004914" duration="2727000" />
       <workItem from="1754189253476" duration="100000" />
-      <workItem from="1754210983881" duration="472000" />
-      <workItem from="1754578552477" duration="498000" />
-      <workItem from="1754580000587" duration="1000" />
-      <workItem from="1754580567478" duration="748000" />
+      <workItem from="1754210983881" duration="386000" />
+    </task>
+    <task id="LOCAL-00008" summary="fix parser">
+      <option name="closed" value="true" />
+      <created>1742923888338</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1742923888338</updated>
     </task>
     <task id="LOCAL-00009" summary="fix parser">
       <option name="closed" value="true" />
@@ -653,15 +660,7 @@
       <option name="project" value="LOCAL" />
       <updated>1754187640677</updated>
     </task>
-    <task id="LOCAL-00057" summary="fix parse">
-      <option name="closed" value="true" />
-      <created>1754211375260</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1754211375260</updated>
-    </task>
-    <option name="localTasksCounter" value="58" />
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
