@@ -100,9 +100,12 @@ class LaravelEditorJsParser
                 'data' => $block['data']
             ];
 
-            if((strtolower($block['type']) === 'image') && ($viewName === "laravel-editorjs-parser::default.image")){
+            if((strtolower($block['type']) === 'image') && (in_array($viewName,["laravel-editorjs-parser::default.image","laravel-editorjs-parser::zen.image"]))){
 
-                $viewName = "laravel-editorjs-parser::default.image-light";
+                if($viewName === "laravel-editorjs-parser::default.image")
+                {
+                    $viewName = "laravel-editorjs-parser::default.image-light";
+                }
                 
                 $dimensions = $this->calculateImageDimensions($block['data']);
 
