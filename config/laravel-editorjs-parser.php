@@ -122,6 +122,22 @@ return [
                             'type' => 'string',
                             'required' => false,
                         ],
+                        'site' => [
+                            'type' => 'string',
+                            'required' => false,
+                        ],
+                        'medium' => [
+                            'type' => 'string',
+                            'required' => false,
+                        ],
+                        'amphtml' => [
+                            'type' => 'string',
+                            'required' => false,
+                        ],
+                        'canonical' => [
+                            'type' => 'string',
+                            'required' => false,
+                        ],
                         'image' => [
                             'type' => 'array',
                             'required' => false,
