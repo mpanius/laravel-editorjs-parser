@@ -71,7 +71,8 @@ return [
                                         '-' => [
                                             'type' => 'array',
                                             'data' => [
-                                                'meta' => ['type' => 'array',
+                                                'meta' => [
+                                                    'type' => 'array',
                                                     'data' => [
                                                         '-' => [
                                                             'checked' => [
@@ -80,7 +81,8 @@ return [
                                                             ]
                                                         ],
                                                     ],
-                                                    'required' => false],
+                                                    'required' => false
+                                                ],
                                                 'items' => [
                                                     'type' => 'array',
                                                     'data' => [],
