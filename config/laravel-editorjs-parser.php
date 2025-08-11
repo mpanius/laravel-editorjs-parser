@@ -113,6 +113,10 @@ return [
                         'title' => [
                             'type' => 'string',
                         ],
+                        'imageUrl' => [
+                            'type' => 'string',
+                            'required' => false,
+                        ],
                         'description' => [
                             'type' => 'string',
                         ],
