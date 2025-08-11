@@ -313,6 +313,50 @@ return [
                 ],
                 'caption' => 'string'
             ],
+            'gallery' => [
+                'config' => [
+                    'type' => 'string',
+                    'required' => false,
+                ],
+                'countItemEachRow' => [
+                    'type' => 'integer',
+                    'required' => false,
+                ],
+                'items' => [
+                    'type' => 'array',
+                    'data' => [
+                        '-' => [
+                            'type' => 'array',
+                            'data' => [
+                                'media_id' => [
+                                    'type' => 'integer',
+                                    'required' => false,
+                                ],
+                                'url' => [
+                                    'type' => 'string',
+                                    'required' => false,
+                                ],
+                                'caption' => [
+                                    'type' => 'string',
+                                    'required' => false,
+                                ],
+                                'width' => [
+                                    'type' => 'integer',
+                                    'required' => false,
+                                ],
+                                'height' => [
+                                    'type' => 'integer',
+                                    'required' => false,
+                                ],
+                                'mime_type' => [
+                                    'type' => 'string',
+                                    'required' => false,
+                                ],
+                            ],
+                        ],
+                    ],
+                ],
+            ],
         ],
     ],
 ];
