@@ -5,14 +5,16 @@
     @endif
 
     <div class="embed-link__title">
-        {{ $data['meta']['title'] }}
+        {{ $data['meta']['title'] ?? '' }}
     </div>
 
     <div class="embed-link__description">
-        {{ $data['meta']['description'] }}
+        {{ $data['meta']['description'] ?? '' }}
     </div>
 
+    @isset($data['link'])
     <span class="embed-link__domain">
         {{ parse_url($data['link'], PHP_URL_HOST)}}
     </span>
+        @endisset
 </a>
