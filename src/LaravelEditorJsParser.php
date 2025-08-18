@@ -61,7 +61,7 @@ class LaravelEditorJsParser
 
     }
 
-    public function renderBlocks(string $data,$template_dir = 'default', bool $withMedia = false, bool $withMeta = false) : array
+    public function renderBlocks(string $data,$template_dir = 'default', bool $withMedia = false) : array
     {
 
 
@@ -73,9 +73,9 @@ class LaravelEditorJsParser
 
         $renderedBlocks = [];
 
-        $renderedBlocksWithMeta = [];
-
         $renderedImages = [];
+
+        $renderedMeta = [];
 
 
 
@@ -96,22 +96,22 @@ class LaravelEditorJsParser
                     }
                 }
             }
-            
+
             $viewData = [
                 'type' => $block['type'],
                 'data' => $block['data']
             ];
-            $dimensions = null;
+
             if((strtolower($block['type']) === 'image') && (in_array($viewName,["laravel-editorjs-parser::default.image","laravel-editorjs-parser::zen.image"]))){
 
                 if($viewName === "laravel-editorjs-parser::default.image")
                 {
                     $viewName = "laravel-editorjs-parser::default.image-light";
                 }
-                
+
                 $dimensions = $this->calculateImageDimensions($block['data'], $viewName);
 
-                
+
                 if ($dimensions) {
                     $renderedImages[] = $dimensions;
                     // Добавляем dimensions прямо в data для использования в шаблоне
@@ -119,26 +119,15 @@ class LaravelEditorJsParser
                 }
             }
 
-            $renderedBlock =  view($viewName, $viewData)->render();
-            $renderedText = Str::squish(str_replace("\n"," ",strip_tags($renderedBlock)));
-            $renderedBlocksWithMeta[] = [
-                'type' => $block['type'],
-                'length' => strlen($renderedText),
-                'text' => $renderedText,
-                'html' => $renderedBlock,
-                'media' => $dimensions,
-                'data' => $block['data']
-
-            ];
+            $renderedBlock = view($viewName, $viewData)->render();
+            $renderedMeta = ['type' => $block['type'], 'length' => Str::squish(strip_tags(str_replace('\n','', $renderedBlock)))];
             $renderedBlocks[] = $renderedBlock;
         }
-        if($withMeta){
-            return $renderedBlocksWithMeta;
-        }
-        return $withMedia ? ['blocks' => $renderedBlocks, 'images' => $renderedImages, 'data' => $renderedBlocksWithMeta] : $renderedBlocks;
+
+        return $withMedia ? ['blocks' => $renderedBlocks, 'images' => $renderedImages, 'meta' => $renderedMeta] : $renderedBlocks;
 
     }
-    
+
     /**
      * Calculate image dimensions for responsive display
      *
@@ -150,41 +139,41 @@ class LaravelEditorJsParser
     {
         $mediaId = $data['file']['media_id'] ?? $data['media_id'] ?? null;
         $media = media($mediaId);
-        
+
         if (empty($media)) {
             return null;
         }
-        
+
         $imageUrl = $media->getFullUrl() ?? null;
         if (empty($imageUrl)) {
             return null;
         }
-        
+
         $originalWidth = $media->width ?? $media->getCustomProperty('width') ?? 0;
         $originalHeight = $media->height ?? $media->getCustomProperty('height') ?? 0;
-        
+
         // Определяем, является ли изображение маленьким (меньше 400px по ширине)
         $isSmallImage = $originalWidth > 0 && $originalWidth < 400;
-        
+
         // Максимальная ширина контейнера публикации
         // Для zen используем 1600, для остальных 920
         $maxWidth = ($viewName === "laravel-editorjs-parser::zen.image") ? 1600 : 920;
         // Максимальная высота изображения на десктопе
         // Для zen используем 1200, для остальных 700
         $maxDesktopHeight = ($viewName === "laravel-editorjs-parser::zen.image") ? 1200 : 700;
-        
+
         // Определяем оптимальные размеры для разных устройств
         $desktopWidth = (($originalWidth > 0) && ($originalWidth < $maxWidth)) ? $originalWidth : $maxWidth;
         $tabletWidth = min(736, $desktopWidth);
         $mobileWidth = min(480, $desktopWidth);
-        
+
         // Вычисляем соотношение сторон
         $aspectRatio = (($originalWidth > 0) && ($originalHeight > 0)) ? $originalWidth / $originalHeight : 0;
-        
+
         // Рассчитываем ФИНАЛЬНЫЕ размеры десктопной картинки
         $finalWidth = $desktopWidth;
         $finalHeight = $maxDesktopHeight;
-        
+
         if (($originalWidth > 0) && ($originalHeight > 0) && ($aspectRatio > 0)) {
             $scaleW = $desktopWidth / $originalWidth;
             $scaleH = $maxDesktopHeight / $originalHeight;
@@ -192,7 +181,7 @@ class LaravelEditorJsParser
             $finalWidth = round($originalWidth * $scale);
             $finalHeight = round($originalHeight * $scale);
         }
-        
+
         return [
             'originalWidth' => $originalWidth,
             'originalHeight' => $originalHeight,
