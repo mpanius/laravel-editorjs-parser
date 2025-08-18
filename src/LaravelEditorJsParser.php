@@ -120,7 +120,7 @@ class LaravelEditorJsParser
             }
 
             $renderedBlock = view($viewName, $viewData)->render();
-            $renderedMeta[] = ['type' => $block['type'], 'length' => Str::squish(strip_tags(str_replace('\n','', $renderedBlock)))];
+            $renderedMeta[] = ['type' => $block['type'], 'length' => strlen(Str::squish(strip_tags(str_replace('\n','', $renderedBlock))))];
             $renderedBlocks[] = $renderedBlock;
         }
 
