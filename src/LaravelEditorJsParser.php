@@ -61,7 +61,7 @@ class LaravelEditorJsParser
 
     }
 
-    public function renderBlocks(string $data,$template_dir = 'default', bool $withMedia = false) : array
+    public function renderBlocks(string $data,$template_dir = 'default', bool $withMedia = false, bool $withMeta = false) : array
     {
 
 
@@ -72,6 +72,8 @@ class LaravelEditorJsParser
         $editor = new EditorJS($data, $configJson);
 
         $renderedBlocks = [];
+
+        $renderedBlocksWithMeta = [];
 
         $renderedImages = [];
 
@@ -99,7 +101,7 @@ class LaravelEditorJsParser
                 'type' => $block['type'],
                 'data' => $block['data']
             ];
-
+            $dimensions = null;
             if((strtolower($block['type']) === 'image') && (in_array($viewName,["laravel-editorjs-parser::default.image","laravel-editorjs-parser::zen.image"]))){
 
                 if($viewName === "laravel-editorjs-parser::default.image")
@@ -116,11 +118,24 @@ class LaravelEditorJsParser
                     $viewData['data']['dimensions'] = $dimensions;
                 }
             }
-            
-            $renderedBlocks[] = view($viewName, $viewData)->render();
-        }
 
-        return $withMedia ? ['blocks' => $renderedBlocks, 'images' => $renderedImages] : $renderedBlocks;
+            $renderedBlock =  view($viewName, $viewData)->render();
+            $renderedText = Str::squish(str_replace("\n"," ",strip_tags($renderedBlock)));
+            $renderedBlocksWithMeta[] = [
+                'type' => $block['type'],
+                'length' => strlen($renderedText),
+                'text' => $renderedText,
+                'html' => $renderedBlock,
+                'media' => $dimensions,
+                'data' => $block['data']
+
+            ];
+            $renderedBlocks[] = $renderedBlock;
+        }
+        if($withMeta){
+            return $renderedBlocksWithMeta;
+        }
+        return $withMedia ? ['blocks' => $renderedBlocks, 'images' => $renderedImages, 'data' => $renderedBlocksWithMeta] : $renderedBlocks;
 
     }
     
