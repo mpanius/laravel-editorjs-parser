@@ -24,6 +24,10 @@ return [
                         '-' => [
                             'type' => 'string',
                             'required' => false
+                        ],
+                        'counterType' => [
+                            'type' => 'string',
+                            'required' => false
                         ]
                     ], // нет вложенной структуры
                     'required' => false,
