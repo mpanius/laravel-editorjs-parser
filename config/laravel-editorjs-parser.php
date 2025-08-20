@@ -47,6 +47,7 @@ return [
                                 // Обязательное текстовое содержимое
                                 'content' => [
                                     'type' => 'string',
+                                    'allowedTags' => 'i,b,a[href],code[class],mark[class]',
                                     'required' => false
 
                                 ],
@@ -94,6 +95,7 @@ return [
                                                 ],
                                                 'content' => [
                                                     'type' => 'string',
+                                                    'allowedTags' => 'i,b,a[href],code[class],mark[class]',
                                                     'required' => false
                                                 ],
                                             ],
