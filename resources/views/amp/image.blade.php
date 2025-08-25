@@ -4,11 +4,13 @@
         $mediaId = $data['file']['media_id'] ?? $data['media_id'] ?? null;
     $media = media($mediaId);
 
-    if(empty($media)) return '';
+    if(empty($media)) {
+        $imageUrl = $data['file']['url'] ? normalize($data['file']['url']) : null;
+    } else {
      $originalHeight = $media->height;
         $originalWidth = $media->width;
         $imageUrl = $media->getFullUrl();
-
+}
     @endphp
 
     @if(!empty($imageUrl))
