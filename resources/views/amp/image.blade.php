@@ -6,9 +6,11 @@
 
     if(empty($media)) {
         $imageUrl = $data['file']['url'] ? normalize($data['file']['url']) : null;
+        $originalHeight = $data['file']['height'] ?? 0;
+        $originalWidth = $data['file']['width'] ?? 0;
     } else {
-     $originalHeight = $media->height;
-        $originalWidth = $media->width;
+     $originalHeight = $media->height ?? 0;
+        $originalWidth = $media->width ?? 0;
         $imageUrl = $media->getFullUrl();
 }
     @endphp
