@@ -45,7 +45,7 @@
     </div>
 
     <!-- Ленивый контент (показывается только в бесконечной ленте) -->
-    <div class="embed-content-lazy" style="display: none;">
+    <div class="embed-content-lazy">
         <!-- Плейсхолдер -->
         <div class="embed-placeholder bg-gray-100 dark:bg-gray-800 flex items-center justify-center rounded-lg" 
              style="width:100%; padding-bottom: 56.25%; position: relative;">
@@ -59,7 +59,7 @@
         </div>
             
         <!-- Динамический контент -->
-        <div class="embed-content" style="display: none; position: relative; width: 100%; padding-bottom: 56.25%;">
+        <div class="embed-content" style="position: relative; width: 100%; padding-bottom: 56.25%;">
             @if($data['service'] === 'youtube')
                 <div class="viqeo-external_player" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></div>
             @endif
@@ -80,8 +80,10 @@
 /* Стили для контроля видимости в зависимости от контекста */
 .editor-js-embed .embed-content-default { display: block; }
 .editor-js-embed .embed-content-lazy { display: none; }
+.editor-js-embed .embed-content-lazy .embed-content { display: none; }
 
 /* В бесконечной ленте переключаемся на ленивую загрузку */
 .infinite-scroll-container .editor-js-embed .embed-content-default { display: none; }
 .infinite-scroll-container .editor-js-embed .embed-content-lazy { display: block; }
+/* embed-content остается скрытым до загрузки через JS */
 </style>
