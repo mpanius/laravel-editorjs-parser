@@ -60,10 +60,7 @@
             
         <!-- Динамический контент -->
         <div class="embed-content" style="position: relative; width: 100%; padding-bottom: 56.25%;">
-            @if($data['service'] === 'youtube')
-                <div class="viqeo-external_player" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></div>
-            @endif
-            <!-- Контент создается JS для других сервисов -->
+            <!-- Контент создается JS для всех сервисов -->
         </div>
     </div>
 
