@@ -18,7 +18,7 @@
                         data-videoSrc="{{str_replace('&amp;','&',$data['embed'])}}"
                 >
                     <iframe
-                            src="https://cdn.viqeo.tv/embed/?videoSrc={{str_replace('&amp;','&',$data['embed'])}}playerId=4933"
+                            src="https://cdn.viqeo.tv/embed/?videoSrc={{str_replace('&amp;','&',$data['embed'])}}&playerId=4933"
                             width="100%" height="100%" style="position:absolute;" frameBorder="0" allowFullScreen></iframe>
                 </div>
                 @break
