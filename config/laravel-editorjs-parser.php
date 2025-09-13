@@ -312,7 +312,24 @@ return [
                 'embed' => 'string',
                 'width' => 'integer',
                 'height' => 'integer',
-                'caption' => 'string'
+                'caption' => 'string',
+                'meta' => ['type' => 'array','required' => false, 'data' => [
+                    'type' => 'string',
+                    'url' => 'string',
+                    'provider_name' => 'string',
+                    'title' => 'string',
+                    'provider_url' => ['type' => 'string', 'required' => false],
+                    'description' => ['type' => 'string', 'required' => false],
+                    'author_name' => ['type' => 'string', 'required' => false],
+                    'author_url' => ['type' => 'string', 'required' => false],
+                    'html' => ['type' => 'string', 'required' => false],
+                    'width' => ['type' => 'integer', 'required' => false],
+                    'height' => ['type' => 'integer', 'required' => false],
+                    'thumbnail_url' => ['type' => 'string', 'required' => false],
+                    'thumbnail_width' => ['type' => 'integer', 'required' => false],
+                    'thumbnail_height'=> ['type' => 'integer', 'required' => false],
+                    'version'=> ['type' => 'string', 'required' => false]
+                ]]
             ],
             'iframely' => [
 
