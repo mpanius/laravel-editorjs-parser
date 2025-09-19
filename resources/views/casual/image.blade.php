@@ -23,7 +23,7 @@
                         alt="{{$data['caption'] ?? ''}}"
 
                         width="{{ $data['width'] }}"
-                        height="{{ $data['originalWidth'] /$data['originalHeight'] }}"
+                        height="{{ ($data['width']/$data['originalWidth'] )* $data['originalHeight'] }}"
                         style="aspect-ratio: {{$data['originalWidth']}} / {{$data['originalHeight']}};"
 
                         srcset="@foreach($data['srcSet'] as $width)
