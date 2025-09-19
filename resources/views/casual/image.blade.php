@@ -10,6 +10,11 @@
             @isset($data['originalWidth'])
             width="{{$data['originalWidth']}}"
             height="{{$data['originalHeight']}}"
+            data-original-width="{{$data['originalWidth']}}"
+            data-original-height="{{$data['originalHeight']}}"
+            data-max-width="{{$data['maxDeskWidth']}}"
+            data-max-height="{{$data['maxDeskHeight']}}"
+            data-original-image="{{$data['imageUrl']}}"
             style="aspect-ratio: {{$data['originalWidth']}} / {{$data['originalHeight']}};"
             src="{{img($data['imageUrl'],$data['width'],$data['height'],false)}}"
             srcset="
