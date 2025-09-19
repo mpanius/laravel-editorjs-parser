@@ -94,10 +94,16 @@ class LaravelEditorJsParser
                 $viewData['imageUrl'] = $viewData['file']['url'] ?? null;
                 $viewData['originalWidth'] = $viewData['file']['width'] ?? null;
                 $viewData['originalHeight'] = $viewData['file']['height'] ?? null;
+
                 $viewData['maxDeskWidth'] = config('common.content_width',970);
                 $viewData['maxDeskHeight'] = config('common.content_height',700);
+
                 $viewData['srcSet'] = config('common.content_srcset', [320,460,640,768,1280,1920,2560]);
+
                 $viewData['srcSizes'] = config('common.content_srcsizes', '100vw, (max-width: 1023px) 712px, (max-width: 1279px) 920px, (max-width: 1535px) 1175px');
+
+                $viewData['width'] = min($maxDeskWidth,$viewData['originalWidth']);
+                $viewData['height'] = min($maxDeskHeight,$viewData['originalHeight']);
 
                 if(!($viewData['imageUrl'] && $viewData['originalWidth'] && $viewData['originalHeight'] )
                 && ($mediaId = $viewData['file']['media_id'] ?? $viewData['media_id'] ?? null)
@@ -105,8 +111,8 @@ class LaravelEditorJsParser
                     $viewData['imageUrl'] = $media->getFullUrl();
                     $viewData['originalWidth'] = $media->width ?? $media->getCustomProperty('width') ?? null;
                     $viewData['originalHeight'] = $media->height ?? $media->getCustomProperty('height') ?? null;
-                    $viewData['width'] = min($maxDeskWidth,$viewData['originalWidth']);
-                    $viewData['height'] = min($maxDeskHeight,$viewData['originalHeight']);
+                    $viewData['width'] = min($maxDeskWidth,$viewData['originalWidth']) ?? null;
+                    $viewData['height'] = min($maxDeskHeight,$viewData['originalHeight']) ?? null;
                 }
 
                 $block['data'] = $viewData;
