@@ -63,7 +63,60 @@ class LaravelEditorJsParser
 
     }
 
-    public function renderBlocks(string $data,$template_dir = 'default', bool $withMedia = false) : array
+    public function blocksRender(string $data, $template_dir = 'casual') : array
+    {
+        $configJson = json_encode(config('laravel-editorjs-parser.config') ?: []);
+
+        $editor = new EditorJS($data, $configJson);
+
+        $renderedBlocks = [];
+
+        foreach ($editor->blocks as $id => $block) {
+
+            $viewName = "laravel-editorjs-parser::{$template_dir}." . Str::snake($block['type'], '-');
+
+            if (!View::exists($viewName)) {
+                if ($template_dir === 'casual') {
+                    $viewName = "laravel-editorjs-parser::casual.not-found";
+                } else {
+                    $viewName = "laravel-editorjs-parser::casual." . Str::snake($block['type'], '-');
+                    if (!View::exists($viewName)) {
+                        $viewName = "laravel-editorjs-parser::casual.not-found";
+                    }
+                }
+            }
+
+            $maxDeskWidth = config('common.content_width',970);
+            $maxDeskHeight = config('common.content_height',700);
+            $type = $block['type'];
+            if($type === 'image'){
+                $viewData = $block['data'];
+                $viewData['imageUrl'] = $viewData['file']['url'] ?? null;
+                $viewData['originalWidth'] = $viewData['file']['width'] ?? null;
+                $viewData['originalHeight'] = $viewData['file']['height'] ?? null;
+                $viewData['srcSet'] = config('common.content_srcset', [320,460,640,768,1280,1920,2560]);
+                $viewData['srcSizes'] = config('common.content_srcsizes', '100vw, (max-width: 1023px) 712px, (max-width: 1279px) 920px, (max-width: 1535px) 1175px');
+
+                if(!($viewData['imageUrl'] && $viewData['originalWidth'] && $viewData['originalHeight'] )
+                && ($mediaId = $viewData['file']['media_id'] ?? $viewData['media_id'] ?? null)
+                && $media = media($mediaId)){
+                    $viewData['imageUrl'] = $media->getFullUrl();
+                    $viewData['originalWidth'] = $media->width ?? $media->getCustomProperty('width') ?? null;
+                    $viewData['originalHeight'] = $media->height ?? $media->getCustomProperty('height') ?? null;
+                    $viewData['width'] = min($maxDeskWidth,$viewData['originalWidth']);
+                    $viewData['height'] = min($maxDeskHeight,$viewData['originalHeight']);
+                }
+
+                $block['data'] = $viewData;
+            }
+
+            $renderedBlocks[] = ['type' => $type, 'html' => Str::squish(view($viewName, $block)->render()), 'id' => $block['id']];
+        }
+        return $renderedBlocks;
+
+    }
+
+    public function renderBlocks(string $data, $template_dir = 'default', bool $withMedia = false) : array
     {
 
 
