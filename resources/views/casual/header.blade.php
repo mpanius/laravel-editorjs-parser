@@ -1,1 +1,1 @@
-<h{{ $data['level'] ?? 1 }}>{{ $data['text'] ?? '' }}</h{{ $data['level'] ?? 1 }}>
+<h{{ $data['level'] ?? 1 }}>{{ html_entity_decode($data['text'] ?? '') }}</h{{ $data['level'] ?? 1 }}>
