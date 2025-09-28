@@ -91,7 +91,7 @@ class LaravelEditorJsParser
             $type = $block['type'];
             if($type === 'image'){
                 $viewData = $block['data'];
-                $viewData['imageUrl'] = $viewData['file']['url'] ?? null;
+                $viewData['imageUrl'] = $viewData['file']['original_url'] ?? $viewData['file']['url'] ?? null;
                 $viewData['originalWidth'] = $viewData['file']['width'] ?? null;
                 $viewData['originalHeight'] = $viewData['file']['height'] ?? null;
 

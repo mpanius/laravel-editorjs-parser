@@ -24,15 +24,12 @@
 
                         width="{{ $data['width'] }}"
                         height="{{ ($data['width']/$data['originalWidth'] )* $data['originalHeight'] }}"
-                        style="aspect-ratio: {{$data['originalWidth']}} / {{$data['originalHeight']}};"
+                        style="aspect-ratio: {{ $data['originalWidth'] }} / {{ $data['originalHeight'] }};"
 
-                        srcset="@foreach($data['srcSet'] as $width)
-                         @if($hasSet && ($data['originalWidth'] > $width)) {{img(url: $data['imageUrl'], width:$width)}} {{$width}}w, @elseif($hasSet)
-                            @php $hasSet = false; @endphp
-
-                @else
-                    @break
-                @endif @endforeach"
+                        srcset="
+                        @foreach($data['srcSet'] as $width)
+                        @if($data['originalWidth'] > $width) {{ img(url: $data['imageUrl'], width:$width) }} {{$width}}w, @endif @endforeach
+                        {{ img(url: $data['imageUrl'], width:$data['originalWidth'])}} {{$data['originalWidth']}}w"
                 sizes="{{$data['srcSizes']}}"
                 />
             </div>
@@ -49,16 +46,10 @@
                         class="block max-w-full h-auto mx-auto"
                         alt="{{$data['caption'] ?? ''}}"
                         style="aspect-ratio: {{$data['originalWidth']}} / {{$data['originalHeight']}};"
-                        @foreach($data['srcSet'] as $width)
-                            @if($hasSet && ($data['originalWidth'] > $width))
-                                {{img(url: $data['imageUrl'], width:$width)}} {{$width}}w,
-                        @elseif($hasSet)
-                            @php $hasSet = false; @endphp
-                            {{img(url: $data['imageUrl'], width:$data['originalWidth'])}} {{$data['originalWidth']}}w
-                @else
-                    @break
-                @endif @endforeach"
-                sizes="{{$data['srcSizes']}}"
+                        srcset="@foreach($data['srcSet'] as $width)
+                            @if(($data['originalWidth'] > $width)) {{ img(url: $data['imageUrl'], width:$width)}} {{$width}}w, @endif @endforeach
+                            {{ img(url: $data['imageUrl'], width:$data['originalWidth'])}} {{$data['originalWidth']}}w"
+                            sizes="{{$data['srcSizes']}}"
 
                 />
             </div>
