@@ -186,6 +186,10 @@ return [
                             'type' => 'string',
                             'required' => false,
                         ],
+                        'original_url' => [
+                            'type' => 'string',
+                            'required' => false,
+                        ],
                         'mime_type' => [
                             'type' => 'string',
                             'required' => false,
