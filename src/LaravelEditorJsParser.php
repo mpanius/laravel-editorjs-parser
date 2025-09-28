@@ -107,7 +107,7 @@ class LaravelEditorJsParser
 
                 if(!($viewData['imageUrl'] && $viewData['originalWidth'] && $viewData['originalHeight'] )
                 && ($mediaId = $viewData['file']['media_id'] ?? $viewData['media_id'] ?? null)
-                && $media = media($mediaId)){
+                && $media = CommonMedia::find($mediaId)){
                     $viewData['imageUrl'] = $media->getFullUrl();
                     $viewData['originalWidth'] = $media->width ?? $media->getCustomProperty('width') ?? null;
                     $viewData['originalHeight'] = $media->height ?? $media->getCustomProperty('height') ?? null;
