@@ -65,7 +65,7 @@
             @endif
             @if (($data['caption'] ?? null) || ($data['alt'] ?? null) || ($data['link'] ?? null) )
                 <figcaption class="mx-auto text-center ">
-                    <span>{{ ($data['caption'] ?? false) ? htmlspecialchars_decode($data['caption']) : ''}}</span>
+                    <span>{{ ($data['caption'] ?? false) ? html_entity_decode($data['caption']) : ''}}</span>
                     @if($data['link'] ?? null)
                         <div class="text-xs @if(!empty($data['caption'] ?? null))mt-2 @endif"><a target="_blank"
                                                                                                  class="no-underline text-gray-500 hover:text-blue-500"
