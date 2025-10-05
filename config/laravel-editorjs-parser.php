@@ -238,7 +238,7 @@ return [
             ],
             'table' => [
                 'withHeadings' => 'boolean',
-                'stretched' => 'boolean',
+                'stretched' =>  ['type' => 'boolean','required' => false],
                 'content' => [
                     'type' => 'array',
                     'data' => [
