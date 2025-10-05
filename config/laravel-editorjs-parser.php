@@ -232,9 +232,9 @@ return [
                     'type' => 'string',
                     'required' => false,
                 ],
-                'withBorder' => 'boolean',
-                'withBackground' => 'boolean',
-                'stretched' => 'boolean',
+                'withBorder' => ['type' => 'boolean','required' => false],
+                'withBackground' => ['type' => 'boolean','required' => false],
+                'stretched' => ['type' => 'boolean','required' => false],
             ],
             'table' => [
                 'withHeadings' => 'boolean',
