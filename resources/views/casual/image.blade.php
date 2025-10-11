@@ -61,7 +61,7 @@
                         <div class="text-xs @if(!empty($data['caption'] ?? null))mt-2 @endif"><a target="_blank"
                                                                                                  class="no-underline text-gray-500 hover:text-blue-500"
                                                                                                  href="{{str_replace('&nbsp;','',$data['link'])}}">
-                                {{ ($data['alt'] ?? false) ? __('Изображение').' '. html_entity_decode($data['alt']): __('Источник изображения') }}</a>
+                                {{ ($data['alt'] ?? false) ? __('Image source').' '. html_entity_decode($data['alt']): __('Image source') }}</a>
                         </div>
                     @endif
                 </figcaption>
