@@ -1,0 +1,123 @@
+{
+  "ru": [
+    {
+      "data": {
+        "content": {
+          "time": 1760526591585,
+          "blocks": [
+            {
+              "id": "aFNYk1bv3j",
+              "data": {
+                "text": "15 октября в 07:15 МСК в рентгеновском диапазоне в группе пятен зарегистрирована вспышка M4.8 продолжительностью 43 минуты, сообщили в Институте прикладной геофизики. Это второе по силе событие за последние 4 месяца."
+              },
+              "type": "paragraph"
+            },
+            {
+              "id": "JUa9aXQbrD",
+              "data": {
+                "text": "В течение сегодняшнего дня будут биться рекорды — пока двух-трехмесячные. Как ожидается, может быть впервые с начала лета достигнут уровень вспышек Х.",
+                "caption": "Лаборатория солнечной астрономии ИКИ РАН",
+                "alignment": "left"
+              },
+              "type": "quote"
+            },
+            {
+              "id": "4bMzZnGz8n",
+              "data": {
+                "text": "Высокий уровень геомагнитной возмущенности подтвердили также и в Лаборатории солнечной астрономии ИКИ РАН."
+              },
+              "type": "paragraph"
+            },
+            {
+              "id": "3h-chfEEYY",
+              "data": {
+                "alt": "Лаборатория солнечной астрономии ИКИ РАН",
+                "file": {
+                  "url": "https://cdn.ixbt.site/ixbt-data/777766/conversions/xray-ral5-20251015-68ef419dc0b3e-content_optimized.avif",
+                  "mime": "image/png",
+                  "size": 22193,
+                  "media_id": 777766,
+                  "original_url": "https://cdn.ixbt.site/ixbt-data/777766/xray-ral5-20251015-68ef419dc0b3e.png"
+                },
+                "link": "https://xras.ru/image/xray_RAL5_20251015.png",
+                "caption": "",
+                "stretched": false,
+                "withBorder": false,
+                "withBackground": false
+              },
+              "type": "image"
+            },
+            {
+              "id": "LgHJ6Sh_O6",
+              "data": {
+                "text": "Сейчас на Солнце наблюдается спрогнозированное вчера значительное усиление активности. Графики показывают непрерывный рост фонового излучения Солнца, которое за сутки выросло в 4 раза. Вспышечная солнечная активность, в основном, умеренная, возможны вспышки класса Х, в том числе протонные. Иными словами, Солнце в данный момент даже в отсутствие взрывов формирует потоки рентгеновского излучения на уровне сильных вспышек.&nbsp;"
+              },
+              "type": "paragraph"
+            },
+            {
+              "id": "9NMgFxFAUu",
+              "data": {
+                "embed": "https://t.me/lpixras/1610?embed=1&amp;color=7b1b1b&amp;dark_color=F95C54/",
+                "width": 853,
+                "height": 480,
+                "source": "https://t.me/lpixras/1610",
+                "caption": "",
+                "service": "telegram"
+              },
+              "type": "embed"
+            },
+            {
+              "id": "Bbq1_Z6LfT",
+              "data": {
+                "text": "Отметим, что вспышки класса X — самые мощные вспышки, способные вызвать длительные нарушения связи и перегрузки в электросетях, особенно в северных широтах. В связи с этим, в течение ближайших суток возможны ухудшения условий КВ-радиосвязи, отмечают эксперты."
+              },
+              "type": "paragraph"
+            },
+            {
+              "id": "6vUccY5f1Z",
+              "data": {
+                "text": "Ранее <b><i>www1.ru</i></b> писал о том, что на Солнце <a href=\"https://www1.ru/news/2025/10/12/nebesnoe-svetilo-vzdulos-na-solnce-sformirovalsia-neadekvatnogo-razmera-protuberanec.html\">сформировался</a> «неадекватного» размера протуберанец."
+              },
+              "type": "paragraph"
+            },
+            {
+              "id": "-vkalo4Dgz",
+              "data": {
+                "text": "Читайте ещё материалы по теме:&nbsp;",
+                "level": 2
+              },
+              "type": "header"
+            },
+            {
+              "id": "-q45g4s08K",
+              "data": {
+                "meta": [],
+                "items": [
+                  {
+                    "meta": [],
+                    "items": [],
+                    "content": "<a href=\"https://www1.ru/news/2025/10/13/magnitnaia-buria-i-vspysecnaia-aktivnost-na-solnce-astronomy-rasskazali-o-kosmiceskoi-pogode.html\">Магнитная буря и вспышечная активность на Солнце: астрономы рассказали о космической погоде</a>"
+                  },
+                  {
+                    "meta": [],
+                    "items": [],
+                    "content": "<a href=\"https://www1.ru/news/2025/10/13/zvezda-razrazilas-feierverkami-dve-moshhnye-solnecnye-vspyski-proizosli-13-oktiabria.html\">Звезда разразилась фейерверками: две мощные солнечные вспышки произошли 13 октября</a>"
+                  },
+                  {
+                    "meta": [],
+                    "items": [],
+                    "content": "<a href=\"https://www1.ru/news/2025/10/11/solnecnyi-veter-priblizaetsia-k-zemle-opiat-ozidaiutsia-magnitnye-buri.html\">Солнечный ветер приближается к Земле: опять ожидаются магнитные бури</a><a href=\"https://www1.ru/news/2025/10/13/zvezda-razrazilas-feierverkami-dve-moshhnye-solnecnye-vspyski-proizosli-13-oktiabria.html\"></a><a href=\"https://www1.ru/news/2025/10/13/magnitnaia-buria-i-vspysecnaia-aktivnost-na-solnce-astronomy-rasskazali-o-kosmiceskoi-pogode.html\"></a>"
+                  }
+                ],
+                "style": "unordered"
+              },
+              "type": "list"
+            }
+          ],
+          "version": "2.31.0-rc.7"
+        }
+      },
+      "type": "editorjs"
+    }
+  ]
+}

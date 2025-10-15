@@ -125,6 +125,7 @@ return [
                         ],
                         'description' => [
                             'type' => 'string',
+                            'required' => false,
                         ],
                         'url' => [
                             'type' => 'string',
