@@ -4,11 +4,10 @@ namespace Ixbtcom\LaravelEditorJsParser;
 
 use EditorJS\EditorJS;
 use Exception;
-use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Str;
-use Ixbtcom\Common\Services\ImageService;
 use Ixbtcom\Common\Models\Media as CommonMedia;
+use Ixbtcom\Common\Services\ImageService;
 
 class LaravelEditorJsParser
 {
@@ -21,10 +20,8 @@ class LaravelEditorJsParser
      * @return string
      * @throws Exception
      */
-    public function render(string $data,$template_dir = 'default') : string
+    public function render(string $data, $template_dir = 'default'): string
     {
-
-
 
 
         $configJson = json_encode(config('laravel-editorjs-parser.config') ?: []);
@@ -34,20 +31,16 @@ class LaravelEditorJsParser
         $renderedBlocks = [];
 
 
-
-
         foreach ($editor->getBlocks() as $block) {
 
             $viewName = "laravel-editorjs-parser::{$template_dir}." . Str::snake($block['type'], '-');
 
-            if (! View::exists($viewName)) {
-                if($template_dir === 'default')
-                {
+            if (!View::exists($viewName)) {
+                if ($template_dir === 'default') {
                     $viewName = "laravel-editorjs-parser::default.not-found";
-                } else
-                {
+                } else {
                     $viewName = "laravel-editorjs-parser::default." . Str::snake($block['type'], '-');
-                    if(!View::exists($viewName)){
+                    if (!View::exists($viewName)) {
                         $viewName = "laravel-editorjs-parser::default.not-found";
                     }
                 }
@@ -63,7 +56,7 @@ class LaravelEditorJsParser
 
     }
 
-    public function blocksRender(string $data, $template_dir = 'casual') : array
+    public function blocksRender(string $data, $template_dir = 'casual'): array
     {
         $configJson = json_encode(config('laravel-editorjs-parser.config') ?: []);
 
@@ -86,33 +79,33 @@ class LaravelEditorJsParser
                 }
             }
 
-            $maxDeskWidth = config('common.content_width',970);
-            $maxDeskHeight = config('common.content_height',700);
+            $maxDeskWidth = config('common.content_width', 970);
+            $maxDeskHeight = config('common.content_height', 700);
             $type = $block['type'];
-            if($type === 'image'){
+            if ($type === 'image') {
                 $viewData = $block['data'];
                 $viewData['imageUrl'] = $viewData['file']['original_url'] ?? $viewData['file']['url'] ?? null;
                 $viewData['originalWidth'] = $viewData['file']['width'] ?? null;
                 $viewData['originalHeight'] = $viewData['file']['height'] ?? null;
 
-                $viewData['maxDeskWidth'] = config('common.content_width',970);
-                $viewData['maxDeskHeight'] = config('common.content_height',700);
+                $viewData['maxDeskWidth'] = config('common.content_width', 970);
+                $viewData['maxDeskHeight'] = config('common.content_height', 700);
 
-                $viewData['srcSet'] = config('common.content_srcset', [320,460,640,768,1280,1920,2560]);
+                $viewData['srcSet'] = config('common.content_srcset', [320, 460, 640, 768, 1280, 1920, 2560]);
 
                 $viewData['srcSizes'] = config('common.content_srcsizes', '100vw, (max-width: 1023px) 712px, (max-width: 1279px) 920px, (max-width: 1535px) 1175px');
 
-                $viewData['width'] = min($maxDeskWidth,$viewData['originalWidth']);
-                $viewData['height'] = min($maxDeskHeight,$viewData['originalHeight']);
+                $viewData['width'] = min($maxDeskWidth, $viewData['originalWidth']);
+                $viewData['height'] = min($maxDeskHeight, $viewData['originalHeight']);
 
-                if(!($viewData['imageUrl'] && $viewData['originalWidth'] && $viewData['originalHeight'] )
-                && ($mediaId = $viewData['file']['media_id'] ?? $viewData['media_id'] ?? null)
-                && $media = CommonMedia::find($mediaId)){
+                if (!($viewData['imageUrl'] && $viewData['originalWidth'] && $viewData['originalHeight'])
+                    && ($mediaId = $viewData['file']['media_id'] ?? $viewData['media_id'] ?? null)
+                    && $media = CommonMedia::findCached($mediaId)) {
                     $viewData['imageUrl'] = $media->getFullUrl();
                     $viewData['originalWidth'] = $media->width ?? $media->getCustomProperty('width') ?? null;
                     $viewData['originalHeight'] = $media->height ?? $media->getCustomProperty('height') ?? null;
-                    $viewData['width'] = min($maxDeskWidth,$viewData['originalWidth']) ?? null;
-                    $viewData['height'] = min($maxDeskHeight,$viewData['originalHeight']) ?? null;
+                    $viewData['width'] = min($maxDeskWidth, $viewData['originalWidth']) ?? null;
+                    $viewData['height'] = min($maxDeskHeight, $viewData['originalHeight']) ?? null;
                 }
 
                 $block['data'] = $viewData;
@@ -124,10 +117,8 @@ class LaravelEditorJsParser
 
     }
 
-    public function renderBlocks(string $data, $template_dir = 'default', bool $withMedia = false) : array
+    public function renderBlocks(string $data, $template_dir = 'default', bool $withMedia = false): array
     {
-
-
 
 
         $configJson = json_encode(config('laravel-editorjs-parser.config') ?: []);
@@ -141,20 +132,16 @@ class LaravelEditorJsParser
         $renderedMeta = [];
 
 
-
-
         foreach ($editor->getBlocks() as $block) {
 
             $viewName = "laravel-editorjs-parser::{$template_dir}." . Str::snake($block['type'], '-');
 
-            if (! View::exists($viewName)) {
-                if($template_dir === 'default')
-                {
+            if (!View::exists($viewName)) {
+                if ($template_dir === 'default') {
                     $viewName = "laravel-editorjs-parser::default.not-found";
-                } else
-                {
+                } else {
                     $viewName = "laravel-editorjs-parser::default." . Str::snake($block['type'], '-');
-                    if(!View::exists($viewName)){
+                    if (!View::exists($viewName)) {
                         $viewName = "laravel-editorjs-parser::default.not-found";
                     }
                 }
@@ -165,10 +152,9 @@ class LaravelEditorJsParser
                 'data' => $block['data']
             ];
 
-            if((strtolower($block['type']) === 'image') && (in_array($viewName,["laravel-editorjs-parser::default.image","laravel-editorjs-parser::zen.image"]))){
+            if ((strtolower($block['type']) === 'image') && (in_array($viewName, ["laravel-editorjs-parser::default.image", "laravel-editorjs-parser::zen.image"]))) {
 
-                if($viewName === "laravel-editorjs-parser::default.image")
-                {
+                if ($viewName === "laravel-editorjs-parser::default.image") {
                     $viewName = "laravel-editorjs-parser::default.image-light";
                 }
 
@@ -183,7 +169,7 @@ class LaravelEditorJsParser
             }
 
             $renderedBlock = view($viewName, $viewData)->render();
-            $renderedMeta[] = ['type' => $block['type'], 'length' => strlen(Str::squish(strip_tags(str_replace('\n','', $renderedBlock))))];
+            $renderedMeta[] = ['type' => $block['type'], 'length' => strlen(Str::squish(strip_tags(str_replace('\n', '', $renderedBlock))))];
             $renderedBlocks[] = $renderedBlock;
         }
 
@@ -224,7 +210,7 @@ class LaravelEditorJsParser
 
         foreach ($blocks as $block) {
             $type = strtolower($block['type'] ?? '');
-            $data = (array) ($block['data'] ?? []);
+            $data = (array)($block['data'] ?? []);
 
             // Template resolution with image fallbacks
             if ($type === 'image') {
@@ -286,16 +272,22 @@ class LaravelEditorJsParser
                 /** @var ImageService $imageService */
                 $imageService = app(ImageService::class);
                 $project = config('common.project') ?? config('common.app.slug');
-                $allRoot = (array) config('common.images.sizes.by_project.all', []);
-                $projectRoot = (array) config("common.images.sizes.by_project.$project", []);
-                $profiles = (array) (\Illuminate\Support\Arr::get($projectRoot, 'content_images.responsive')
+                $allRoot = (array)config('common.images.sizes.by_project.all', []);
+                $projectRoot = (array)config("common.images.sizes.by_project.$project", []);
+                $profiles = (array)(\Illuminate\Support\Arr::get($projectRoot, 'content_images.responsive')
                     ?? \Illuminate\Support\Arr::get($allRoot, 'content_images.responsive', []));
                 $pairs = [];
                 foreach ($profiles as $p) {
-                    $w = $p['width'] ?? null; $h = $p['height'] ?? null; $mode = $p['mode'] ?? 'resize';
-                    if (!$w) { continue; }
+                    $w = $p['width'] ?? null;
+                    $h = $p['height'] ?? null;
+                    $mode = $p['mode'] ?? 'resize';
+                    if (!$w) {
+                        continue;
+                    }
                     $u = $imageService->url($original, $w, $h, $mode);
-                    if ($u) { $pairs[(string)(int)$w] = $u.' '.((int)$w).'w'; }
+                    if ($u) {
+                        $pairs[(string)(int)$w] = $u . ' ' . ((int)$w) . 'w';
+                    }
                 }
                 ksort($pairs, SORT_NUMERIC);
                 $data['responsive']['srcset'] = $pairs ? implode(', ', array_values($pairs)) : null;
