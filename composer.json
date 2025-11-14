@@ -46,5 +46,7 @@
 				"Ixbtcom\\LaravelEditorJsParser\\LaravelEditorJsParserServiceProvider"
 			]
 		}
-	}
+	},
+	"minimum-stability": "dev",
+	"prefer-stable": true
 }
